@@ -16,7 +16,11 @@ export interface UnionType {
   anyOf: TypeInfo[];
 }
 
-export type TypeInfo = BasicTypes | TypeReference | TypeLiteral | LiteralType | UnionType;
+export interface ArrayType {
+  array: TypeInfo;
+}
+
+export type TypeInfo = BasicTypes | TypeReference | TypeLiteral | LiteralType | UnionType | ArrayType;
 
 export interface InterfaceDeclaration {
   properties: {
