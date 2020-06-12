@@ -36,7 +36,7 @@ export interface ImportDeclaration {
 
 export interface Module {
   members: {
-    [name: string]: ImportDeclaration | InterfaceDeclaration | EnumDeclaration;
+    [name: string]: ImportDeclaration | InterfaceDeclaration | EnumDeclaration | TypeInfo;
   };
 }
 
