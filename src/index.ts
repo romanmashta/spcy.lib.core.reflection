@@ -7,9 +7,10 @@ export interface TypeReference {
 }
 
 export interface TypeLiteral {
-  properties: {
+  properties?: {
     [name: string]: TypeInfo;
   };
+  index?: TypeInfo;
 }
 
 export interface UnionType {
@@ -23,9 +24,10 @@ export interface ArrayType {
 export type TypeInfo = BasicTypes | TypeReference | TypeLiteral | LiteralType | UnionType | ArrayType;
 
 export interface InterfaceDeclaration {
-  properties: {
+  properties?: {
     [name: string]: TypeInfo;
   };
+  index?: TypeInfo;
 }
 
 export interface EnumDeclaration {
