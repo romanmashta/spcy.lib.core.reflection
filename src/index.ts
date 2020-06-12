@@ -12,7 +12,11 @@ export interface TypeLiteral {
   };
 }
 
-export type TypeInfo = BasicTypes | TypeReference | TypeLiteral | LiteralType;
+export interface UnionType {
+  anyOf: TypeInfo[];
+}
+
+export type TypeInfo = BasicTypes | TypeReference | TypeLiteral | LiteralType | UnionType;
 
 export interface InterfaceDeclaration {
   properties: {
