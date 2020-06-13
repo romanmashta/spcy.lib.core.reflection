@@ -45,8 +45,3 @@ export interface Module {
     [name: string]: ImportDeclaration | InterfaceDeclaration | EnumDeclaration | TypeInfo;
   };
 }
-
-export interface MetaInfo {
-  modules: Module[];
-  hasErrors: boolean;
-}

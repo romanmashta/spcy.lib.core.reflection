@@ -1,1 +1,1 @@
-export * from './meta-info';
+export * from './meta-model';
