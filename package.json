@@ -8,8 +8,9 @@
     "email": "roman.mashta@gmail.com",
     "url": ""
   },
-  "main": "dist/index.js",
-  "main:src": "src/index.ts",
+  "main": "./src/index.ts",
+  "main:src": "./src/index.ts",
+  "types": "./dist/index.d.ts",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -19,6 +20,7 @@
     "test": "jest"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.155",
     "@types/jest": "^26.0.0",
     "@types/node": "^14.0.13",
     "eslint": "^6.8.0",
@@ -27,5 +29,8 @@
     "jest": "^26.0.1",
     "ts-jest": "^26.1.0",
     "typescript": "^3.9.5"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15"
   }
 }
