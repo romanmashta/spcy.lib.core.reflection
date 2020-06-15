@@ -25,7 +25,7 @@ export interface SimpleType {
 
 export interface ObjectType {
   type: 'object';
-  required: string[];
+  required?: string[];
   properties?: {
     [name: string]: TypeInfo;
   };
