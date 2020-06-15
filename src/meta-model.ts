@@ -61,3 +61,4 @@ export const isEnumType = (typeInfo: TypeInfo): typeInfo is EnumType => (typeInf
 export const isConstLiteral = (typeInfo: TypeInfo): typeInfo is ConstLiteral =>
   (typeInfo as ConstLiteral).const !== undefined;
 export const isOneOf = (typeInfo: TypeInfo): typeInfo is OneOf => (typeInfo as OneOf).oneOf !== undefined;
+export const isAllOf = (typeInfo: TypeInfo): typeInfo is AllOf => (typeInfo as AllOf).allOf !== undefined;
