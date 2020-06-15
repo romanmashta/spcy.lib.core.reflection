@@ -108,6 +108,7 @@ test('Comply interface with const', () => {
       },
       test: {
         type: 'object',
+        required: ['type', 'locations'],
         properties: {
           type: { const: 'test' },
           locations: {
