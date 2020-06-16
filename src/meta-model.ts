@@ -1,6 +1,18 @@
 import _ from 'lodash';
 
-export type TypeInfo = ObjectType | SimpleType | ArrayType | TypeReference | EnumType | ConstLiteral | OneOf | AllOf;
+export type TypeInfo =
+  | ObjectType
+  | StringType
+  | BooleanType
+  | NumberType
+  | DateType
+  | NullType
+  | ArrayType
+  | TypeReference
+  | EnumType
+  | ConstLiteral
+  | OneOf
+  | AllOf;
 
 export interface TypeReference {
   $ref: string;
@@ -9,6 +21,9 @@ export interface TypeReference {
 export interface ArrayType {
   type: 'array';
   items: TypeInfo;
+  minItems?: number;
+  maxItems?: number;
+  uniqueItems?: boolean;
 }
 
 export interface ConstLiteral {
@@ -19,8 +34,29 @@ export interface EnumType {
   enum: string[];
 }
 
-export interface SimpleType {
-  type: 'string' | 'number' | 'boolean' | 'date' | 'null';
+export interface NullType {
+  type: 'null';
+}
+
+export interface DateType {
+  type: 'date';
+}
+
+export interface BooleanType {
+  type: 'boolean';
+}
+
+export interface StringType {
+  type: 'string';
+  minLength?: number;
+  maxLength?: number;
+  pattern?: string;
+}
+
+export interface NumberType {
+  type: 'number';
+  minimum?: number;
+  maximum?: number;
 }
 
 export interface ObjectType {
@@ -52,8 +88,12 @@ export interface MetaInfo {
 }
 
 export const isObjectType = (typeInfo: TypeInfo): typeInfo is ObjectType => (typeInfo as ObjectType).type === 'object';
-export const isSimpleType = (typeInfo: TypeInfo): typeInfo is SimpleType =>
-  _.includes(['string', 'number', 'boolean', 'date', 'null'], (typeInfo as ObjectType).type);
+export const isNullType = (typeInfo: TypeInfo): typeInfo is NullType => (typeInfo as NullType).type === 'null';
+export const isStringType = (typeInfo: TypeInfo): typeInfo is StringType => (typeInfo as StringType).type === 'string';
+export const isDateType = (typeInfo: TypeInfo): typeInfo is DateType => (typeInfo as DateType).type === 'date';
+export const isBooleanType = (typeInfo: TypeInfo): typeInfo is BooleanType =>
+  (typeInfo as BooleanType).type === 'boolean';
+export const isNumberType = (typeInfo: TypeInfo): typeInfo is NumberType => (typeInfo as NumberType).type === 'number';
 export const isArrayType = (typeInfo: TypeInfo): typeInfo is ArrayType => (typeInfo as ArrayType).type === 'array';
 export const isTypeReference = (typeInfo: TypeInfo): typeInfo is TypeReference =>
   (typeInfo as TypeReference).$ref !== undefined;
