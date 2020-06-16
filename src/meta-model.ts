@@ -1,5 +1,3 @@
-import _ from 'lodash';
-
 export type TypeInfo =
   | ObjectType
   | StringType
