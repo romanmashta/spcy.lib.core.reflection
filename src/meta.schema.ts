@@ -1,4 +1,4 @@
-import { TypeInfo } from './meta.model';
+import { TypeInfo, Module } from './meta.model';
 
 export const TypeInfoSchema: TypeInfo = {
   $id: '@spcy/lib.core.reflection/TypeInfo',
@@ -329,5 +329,26 @@ export const MetaInfoSchema: TypeInfo = {
     hasErrors: {
       type: 'boolean'
     }
+  }
+};
+
+export const MetaSchema: Module = {
+  $defs: {
+    TypeInfo: TypeInfoSchema,
+    TypeReference: TypeReferenceSchema,
+    ArrayType: ArrayTypeSchema,
+    ConstLiteral: ConstLiteralSchema,
+    EnumType: EnumTypeSchema,
+    NullType: NullTypeSchema,
+    DateType: DateTypeSchema,
+    BooleanType: BooleanTypeSchema,
+    StringType: StringTypeSchema,
+    NumberType: NumberTypeSchema,
+    ObjectType: ObjectTypeSchema,
+    OneOf: OneOfSchema,
+    AllOf: AllOfSchema,
+    Module: ModuleSchema,
+    SourceFile: SourceFileSchema,
+    MetaInfo: MetaInfoSchema
   }
 };
