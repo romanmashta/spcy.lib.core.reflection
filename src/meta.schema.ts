@@ -2,7 +2,7 @@ import { TypeInfo, Module } from './meta.model';
 import { SchemaRepository } from './schema-repository';
 
 export const TypeInfoSchema: TypeInfo = {
-  $id: '#TypeInfo',
+  $id: '#/$defs/TypeInfo',
   oneOf: [
     {
       $ref: '#/$defs/ObjectType',
@@ -57,7 +57,7 @@ export const TypeInfoSchema: TypeInfo = {
 SchemaRepository.register(TypeInfoSchema);
 
 export const TypeReferenceSchema: TypeInfo = {
-  $id: '#TypeReference',
+  $id: '#/$defs/TypeReference',
   type: 'object',
   required: ['$ref'],
   properties: {
@@ -75,7 +75,7 @@ export const TypeReferenceSchema: TypeInfo = {
 SchemaRepository.register(TypeReferenceSchema);
 
 export const ArrayTypeSchema: TypeInfo = {
-  $id: '#ArrayType',
+  $id: '#/$defs/ArrayType',
   type: 'object',
   required: ['type', 'items'],
   properties: {
@@ -103,7 +103,7 @@ export const ArrayTypeSchema: TypeInfo = {
 SchemaRepository.register(ArrayTypeSchema);
 
 export const ConstLiteralSchema: TypeInfo = {
-  $id: '#ConstLiteral',
+  $id: '#/$defs/ConstLiteral',
   type: 'object',
   required: ['const'],
   properties: {
@@ -131,7 +131,7 @@ export const ConstLiteralSchema: TypeInfo = {
 SchemaRepository.register(ConstLiteralSchema);
 
 export const EnumTypeSchema: TypeInfo = {
-  $id: '#EnumType',
+  $id: '#/$defs/EnumType',
   type: 'object',
   required: ['enum'],
   properties: {
@@ -149,7 +149,7 @@ export const EnumTypeSchema: TypeInfo = {
 SchemaRepository.register(EnumTypeSchema);
 
 export const NullTypeSchema: TypeInfo = {
-  $id: '#NullType',
+  $id: '#/$defs/NullType',
   type: 'object',
   required: ['type'],
   properties: {
@@ -164,7 +164,7 @@ export const NullTypeSchema: TypeInfo = {
 SchemaRepository.register(NullTypeSchema);
 
 export const DateTypeSchema: TypeInfo = {
-  $id: '#DateType',
+  $id: '#/$defs/DateType',
   type: 'object',
   required: ['type'],
   properties: {
@@ -179,7 +179,7 @@ export const DateTypeSchema: TypeInfo = {
 SchemaRepository.register(DateTypeSchema);
 
 export const BooleanTypeSchema: TypeInfo = {
-  $id: '#BooleanType',
+  $id: '#/$defs/BooleanType',
   type: 'object',
   required: ['type'],
   properties: {
@@ -194,7 +194,7 @@ export const BooleanTypeSchema: TypeInfo = {
 SchemaRepository.register(BooleanTypeSchema);
 
 export const StringTypeSchema: TypeInfo = {
-  $id: '#StringType',
+  $id: '#/$defs/StringType',
   type: 'object',
   required: ['type'],
   properties: {
@@ -218,7 +218,7 @@ export const StringTypeSchema: TypeInfo = {
 SchemaRepository.register(StringTypeSchema);
 
 export const NumberTypeSchema: TypeInfo = {
-  $id: '#NumberType',
+  $id: '#/$defs/NumberType',
   type: 'object',
   required: ['type'],
   properties: {
@@ -239,7 +239,7 @@ export const NumberTypeSchema: TypeInfo = {
 SchemaRepository.register(NumberTypeSchema);
 
 export const ObjectTypeSchema: TypeInfo = {
-  $id: '#ObjectType',
+  $id: '#/$defs/ObjectType',
   type: 'object',
   required: ['type'],
   properties: {
@@ -278,7 +278,7 @@ export const ObjectTypeSchema: TypeInfo = {
 SchemaRepository.register(ObjectTypeSchema);
 
 export const OneOfSchema: TypeInfo = {
-  $id: '#OneOf',
+  $id: '#/$defs/OneOf',
   type: 'object',
   required: ['oneOf'],
   properties: {
@@ -297,7 +297,7 @@ export const OneOfSchema: TypeInfo = {
 SchemaRepository.register(OneOfSchema);
 
 export const AllOfSchema: TypeInfo = {
-  $id: '#AllOf',
+  $id: '#/$defs/AllOf',
   type: 'object',
   required: ['allOf'],
   properties: {
@@ -316,11 +316,11 @@ export const AllOfSchema: TypeInfo = {
 SchemaRepository.register(AllOfSchema);
 
 export const ModuleSchema: TypeInfo = {
-  $id: '#Module',
+  $id: '#/$defs/Module',
   type: 'object',
-  required: ['definitions'],
+  required: ['$defs'],
   properties: {
-    definitions: {
+    $defs: {
       type: 'object',
       additionalProperties: {
         $ref: '#/$defs/TypeInfo',
@@ -332,7 +332,7 @@ export const ModuleSchema: TypeInfo = {
 SchemaRepository.register(ModuleSchema);
 
 export const SourceFileSchema: TypeInfo = {
-  $id: '#SourceFile',
+  $id: '#/$defs/SourceFile',
   type: 'object',
   required: ['fileName', 'module'],
   properties: {
@@ -348,7 +348,7 @@ export const SourceFileSchema: TypeInfo = {
 SchemaRepository.register(SourceFileSchema);
 
 export const MetaInfoSchema: TypeInfo = {
-  $id: '#MetaInfo',
+  $id: '#/$defs/MetaInfo',
   type: 'object',
   required: ['sourceFiles', 'modules', 'hasErrors'],
   properties: {
@@ -374,7 +374,7 @@ export const MetaInfoSchema: TypeInfo = {
 SchemaRepository.register(MetaInfoSchema);
 
 export const MetaSchema: Module = {
-  definitions: {
+  $defs: {
     TypeInfo: TypeInfoSchema,
     TypeReference: TypeReferenceSchema,
     ArrayType: ArrayTypeSchema,

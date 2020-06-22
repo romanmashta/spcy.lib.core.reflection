@@ -88,7 +88,7 @@ export interface AllOf {
 }
 
 export interface Module {
-  definitions: {
+  $defs: {
     [name: string]: TypeInfo;
   };
 }
