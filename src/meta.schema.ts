@@ -2,50 +2,62 @@ import { TypeInfo, Module } from './meta.model';
 import { SchemaRepository } from './schema-repository';
 
 export const TypeInfoSchema: TypeInfo = {
-  $id: '@spcy/lib.core.reflection/TypeInfo',
+  $id: '#TypeInfo',
   oneOf: [
     {
-      $ref: '@spcy/lib.core.reflection/ObjectType'
+      $ref: '#/$defs/ObjectType',
+      $package: '@spcy/lib.core.reflection'
     },
     {
-      $ref: '@spcy/lib.core.reflection/StringType'
+      $ref: '#/$defs/StringType',
+      $package: '@spcy/lib.core.reflection'
     },
     {
-      $ref: '@spcy/lib.core.reflection/BooleanType'
+      $ref: '#/$defs/BooleanType',
+      $package: '@spcy/lib.core.reflection'
     },
     {
-      $ref: '@spcy/lib.core.reflection/NumberType'
+      $ref: '#/$defs/NumberType',
+      $package: '@spcy/lib.core.reflection'
     },
     {
-      $ref: '@spcy/lib.core.reflection/DateType'
+      $ref: '#/$defs/DateType',
+      $package: '@spcy/lib.core.reflection'
     },
     {
-      $ref: '@spcy/lib.core.reflection/NullType'
+      $ref: '#/$defs/NullType',
+      $package: '@spcy/lib.core.reflection'
     },
     {
-      $ref: '@spcy/lib.core.reflection/ArrayType'
+      $ref: '#/$defs/ArrayType',
+      $package: '@spcy/lib.core.reflection'
     },
     {
-      $ref: '@spcy/lib.core.reflection/TypeReference'
+      $ref: '#/$defs/TypeReference',
+      $package: '@spcy/lib.core.reflection'
     },
     {
-      $ref: '@spcy/lib.core.reflection/EnumType'
+      $ref: '#/$defs/EnumType',
+      $package: '@spcy/lib.core.reflection'
     },
     {
-      $ref: '@spcy/lib.core.reflection/ConstLiteral'
+      $ref: '#/$defs/ConstLiteral',
+      $package: '@spcy/lib.core.reflection'
     },
     {
-      $ref: '@spcy/lib.core.reflection/OneOf'
+      $ref: '#/$defs/OneOf',
+      $package: '@spcy/lib.core.reflection'
     },
     {
-      $ref: '@spcy/lib.core.reflection/AllOf'
+      $ref: '#/$defs/AllOf',
+      $package: '@spcy/lib.core.reflection'
     }
   ]
 };
 SchemaRepository.register(TypeInfoSchema);
 
 export const TypeReferenceSchema: TypeInfo = {
-  $id: '@spcy/lib.core.reflection/TypeReference',
+  $id: '#TypeReference',
   type: 'object',
   required: ['$ref'],
   properties: {
@@ -54,13 +66,16 @@ export const TypeReferenceSchema: TypeInfo = {
     },
     $ref: {
       type: 'string'
+    },
+    $package: {
+      type: 'string'
     }
   }
 };
 SchemaRepository.register(TypeReferenceSchema);
 
 export const ArrayTypeSchema: TypeInfo = {
-  $id: '@spcy/lib.core.reflection/ArrayType',
+  $id: '#ArrayType',
   type: 'object',
   required: ['type', 'items'],
   properties: {
@@ -71,7 +86,8 @@ export const ArrayTypeSchema: TypeInfo = {
       const: 'array'
     },
     items: {
-      $ref: '@spcy/lib.core.reflection/TypeInfo'
+      $ref: '#/$defs/TypeInfo',
+      $package: '@spcy/lib.core.reflection'
     },
     minItems: {
       type: 'number'
@@ -87,7 +103,7 @@ export const ArrayTypeSchema: TypeInfo = {
 SchemaRepository.register(ArrayTypeSchema);
 
 export const ConstLiteralSchema: TypeInfo = {
-  $id: '@spcy/lib.core.reflection/ConstLiteral',
+  $id: '#ConstLiteral',
   type: 'object',
   required: ['const'],
   properties: {
@@ -115,7 +131,7 @@ export const ConstLiteralSchema: TypeInfo = {
 SchemaRepository.register(ConstLiteralSchema);
 
 export const EnumTypeSchema: TypeInfo = {
-  $id: '@spcy/lib.core.reflection/EnumType',
+  $id: '#EnumType',
   type: 'object',
   required: ['enum'],
   properties: {
@@ -133,7 +149,7 @@ export const EnumTypeSchema: TypeInfo = {
 SchemaRepository.register(EnumTypeSchema);
 
 export const NullTypeSchema: TypeInfo = {
-  $id: '@spcy/lib.core.reflection/NullType',
+  $id: '#NullType',
   type: 'object',
   required: ['type'],
   properties: {
@@ -148,7 +164,7 @@ export const NullTypeSchema: TypeInfo = {
 SchemaRepository.register(NullTypeSchema);
 
 export const DateTypeSchema: TypeInfo = {
-  $id: '@spcy/lib.core.reflection/DateType',
+  $id: '#DateType',
   type: 'object',
   required: ['type'],
   properties: {
@@ -163,7 +179,7 @@ export const DateTypeSchema: TypeInfo = {
 SchemaRepository.register(DateTypeSchema);
 
 export const BooleanTypeSchema: TypeInfo = {
-  $id: '@spcy/lib.core.reflection/BooleanType',
+  $id: '#BooleanType',
   type: 'object',
   required: ['type'],
   properties: {
@@ -178,7 +194,7 @@ export const BooleanTypeSchema: TypeInfo = {
 SchemaRepository.register(BooleanTypeSchema);
 
 export const StringTypeSchema: TypeInfo = {
-  $id: '@spcy/lib.core.reflection/StringType',
+  $id: '#StringType',
   type: 'object',
   required: ['type'],
   properties: {
@@ -202,7 +218,7 @@ export const StringTypeSchema: TypeInfo = {
 SchemaRepository.register(StringTypeSchema);
 
 export const NumberTypeSchema: TypeInfo = {
-  $id: '@spcy/lib.core.reflection/NumberType',
+  $id: '#NumberType',
   type: 'object',
   required: ['type'],
   properties: {
@@ -223,7 +239,7 @@ export const NumberTypeSchema: TypeInfo = {
 SchemaRepository.register(NumberTypeSchema);
 
 export const ObjectTypeSchema: TypeInfo = {
-  $id: '@spcy/lib.core.reflection/ObjectType',
+  $id: '#ObjectType',
   type: 'object',
   required: ['type'],
   properties: {
@@ -242,13 +258,15 @@ export const ObjectTypeSchema: TypeInfo = {
     properties: {
       type: 'object',
       additionalProperties: {
-        $ref: '@spcy/lib.core.reflection/TypeInfo'
+        $ref: '#/$defs/TypeInfo',
+        $package: '@spcy/lib.core.reflection'
       }
     },
     additionalProperties: {
       oneOf: [
         {
-          $ref: '@spcy/lib.core.reflection/TypeInfo'
+          $ref: '#/$defs/TypeInfo',
+          $package: '@spcy/lib.core.reflection'
         },
         {
           type: 'boolean'
@@ -260,7 +278,7 @@ export const ObjectTypeSchema: TypeInfo = {
 SchemaRepository.register(ObjectTypeSchema);
 
 export const OneOfSchema: TypeInfo = {
-  $id: '@spcy/lib.core.reflection/OneOf',
+  $id: '#OneOf',
   type: 'object',
   required: ['oneOf'],
   properties: {
@@ -270,7 +288,8 @@ export const OneOfSchema: TypeInfo = {
     oneOf: {
       type: 'array',
       items: {
-        $ref: '@spcy/lib.core.reflection/TypeInfo'
+        $ref: '#/$defs/TypeInfo',
+        $package: '@spcy/lib.core.reflection'
       }
     }
   }
@@ -278,7 +297,7 @@ export const OneOfSchema: TypeInfo = {
 SchemaRepository.register(OneOfSchema);
 
 export const AllOfSchema: TypeInfo = {
-  $id: '@spcy/lib.core.reflection/AllOf',
+  $id: '#AllOf',
   type: 'object',
   required: ['allOf'],
   properties: {
@@ -288,7 +307,8 @@ export const AllOfSchema: TypeInfo = {
     allOf: {
       type: 'array',
       items: {
-        $ref: '@spcy/lib.core.reflection/TypeInfo'
+        $ref: '#/$defs/TypeInfo',
+        $package: '@spcy/lib.core.reflection'
       }
     }
   }
@@ -296,14 +316,15 @@ export const AllOfSchema: TypeInfo = {
 SchemaRepository.register(AllOfSchema);
 
 export const ModuleSchema: TypeInfo = {
-  $id: '@spcy/lib.core.reflection/Module',
+  $id: '#Module',
   type: 'object',
-  required: ['$defs'],
+  required: ['definitions'],
   properties: {
-    $defs: {
+    definitions: {
       type: 'object',
       additionalProperties: {
-        $ref: '@spcy/lib.core.reflection/TypeInfo'
+        $ref: '#/$defs/TypeInfo',
+        $package: '@spcy/lib.core.reflection'
       }
     }
   }
@@ -311,7 +332,7 @@ export const ModuleSchema: TypeInfo = {
 SchemaRepository.register(ModuleSchema);
 
 export const SourceFileSchema: TypeInfo = {
-  $id: '@spcy/lib.core.reflection/SourceFile',
+  $id: '#SourceFile',
   type: 'object',
   required: ['fileName', 'module'],
   properties: {
@@ -319,27 +340,30 @@ export const SourceFileSchema: TypeInfo = {
       type: 'string'
     },
     module: {
-      $ref: '@spcy/lib.core.reflection/Module'
+      $ref: '#/$defs/Module',
+      $package: '@spcy/lib.core.reflection'
     }
   }
 };
 SchemaRepository.register(SourceFileSchema);
 
 export const MetaInfoSchema: TypeInfo = {
-  $id: '@spcy/lib.core.reflection/MetaInfo',
+  $id: '#MetaInfo',
   type: 'object',
   required: ['sourceFiles', 'modules', 'hasErrors'],
   properties: {
     sourceFiles: {
       type: 'array',
       items: {
-        $ref: '@spcy/lib.core.reflection/SourceFile'
+        $ref: '#/$defs/SourceFile',
+        $package: '@spcy/lib.core.reflection'
       }
     },
     modules: {
       type: 'array',
       items: {
-        $ref: '@spcy/lib.core.reflection/Module'
+        $ref: '#/$defs/Module',
+        $package: '@spcy/lib.core.reflection'
       }
     },
     hasErrors: {
@@ -350,7 +374,7 @@ export const MetaInfoSchema: TypeInfo = {
 SchemaRepository.register(MetaInfoSchema);
 
 export const MetaSchema: Module = {
-  $defs: {
+  definitions: {
     TypeInfo: TypeInfoSchema,
     TypeReference: TypeReferenceSchema,
     ArrayType: ArrayTypeSchema,
