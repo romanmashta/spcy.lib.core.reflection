@@ -1,5 +1,5 @@
 import { TypeInfo, Module } from './meta.model';
-import { SchemaRepository } from './schema-repository';
+import { SchemaRepository } from './schema-resolver-impl';
 
 export const TypeInfoSchema: TypeInfo = {
   $id: '#/$defs/TypeInfo',
