@@ -16,6 +16,7 @@ export interface TypeReference {
   $id?: string;
   $ref: string;
   $package?: string;
+  $arguments?: TypeReference[];
 }
 
 export interface ArrayType {

@@ -57,6 +57,12 @@ export const TypeReferenceSchema: TypeInfo = {
     },
     $package: {
       type: 'string'
+    },
+    $arguments: {
+      type: 'array',
+      items: {
+        $ref: '#/$defs/TypeReference'
+      }
     }
   }
 };
