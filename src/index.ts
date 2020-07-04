@@ -1,5 +1,5 @@
-export * from './meta.model';
-export * from './meta.schema';
+export * from './index.model';
+export * from './index.schema';
 export * from './property';
 export * from './reference';
 export * from './schema-resolver-impl';

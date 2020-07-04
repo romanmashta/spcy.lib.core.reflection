@@ -1,51 +1,49 @@
-import { TypeInfo, Module } from './meta.model';
-import { SchemaRepository } from './schema-resolver-impl';
+import { TypeInfo, Module } from './index.model';
 
-export const TypeInfoSchema: TypeInfo = {
-  $id: '#/$defs/TypeInfo',
+const TypeInfo: TypeInfo = {
+  $id: 'TypeInfo',
   oneOf: [
     {
-      $ref: '#/$defs/ObjectType'
+      $ref: 'ObjectType'
     },
     {
-      $ref: '#/$defs/StringType'
+      $ref: 'StringType'
     },
     {
-      $ref: '#/$defs/BooleanType'
+      $ref: 'BooleanType'
     },
     {
-      $ref: '#/$defs/NumberType'
+      $ref: 'NumberType'
     },
     {
-      $ref: '#/$defs/DateType'
+      $ref: 'DateType'
     },
     {
-      $ref: '#/$defs/NullType'
+      $ref: 'NullType'
     },
     {
-      $ref: '#/$defs/ArrayType'
+      $ref: 'ArrayType'
     },
     {
-      $ref: '#/$defs/TypeReference'
+      $ref: 'TypeReference'
     },
     {
-      $ref: '#/$defs/EnumType'
+      $ref: 'EnumType'
     },
     {
-      $ref: '#/$defs/ConstLiteral'
+      $ref: 'ConstLiteral'
     },
     {
-      $ref: '#/$defs/OneOf'
+      $ref: 'OneOf'
     },
     {
-      $ref: '#/$defs/AllOf'
+      $ref: 'AllOf'
     }
   ]
 };
 
-SchemaRepository.register(TypeInfoSchema);
-export const TypeReferenceSchema: TypeInfo = {
-  $id: '#/$defs/TypeReference',
+const TypeReference: TypeInfo = {
+  $id: 'TypeReference',
   type: 'object',
   required: ['$ref'],
   properties: {
@@ -61,15 +59,14 @@ export const TypeReferenceSchema: TypeInfo = {
     $arguments: {
       type: 'array',
       items: {
-        $ref: '#/$defs/TypeReference'
+        $ref: 'TypeReference'
       }
     }
   }
 };
 
-SchemaRepository.register(TypeReferenceSchema);
-export const ArrayTypeSchema: TypeInfo = {
-  $id: '#/$defs/ArrayType',
+const ArrayType: TypeInfo = {
+  $id: 'ArrayType',
   type: 'object',
   required: ['type', 'items'],
   properties: {
@@ -80,7 +77,7 @@ export const ArrayTypeSchema: TypeInfo = {
       const: 'array'
     },
     items: {
-      $ref: '#/$defs/TypeInfo'
+      $ref: 'TypeInfo'
     },
     minItems: {
       type: 'number'
@@ -94,9 +91,8 @@ export const ArrayTypeSchema: TypeInfo = {
   }
 };
 
-SchemaRepository.register(ArrayTypeSchema);
-export const ConstLiteralSchema: TypeInfo = {
-  $id: '#/$defs/ConstLiteral',
+const ConstLiteral: TypeInfo = {
+  $id: 'ConstLiteral',
   type: 'object',
   required: ['const'],
   properties: {
@@ -122,9 +118,8 @@ export const ConstLiteralSchema: TypeInfo = {
   }
 };
 
-SchemaRepository.register(ConstLiteralSchema);
-export const EnumTypeSchema: TypeInfo = {
-  $id: '#/$defs/EnumType',
+const EnumType: TypeInfo = {
+  $id: 'EnumType',
   type: 'object',
   required: ['enum'],
   properties: {
@@ -140,9 +135,8 @@ export const EnumTypeSchema: TypeInfo = {
   }
 };
 
-SchemaRepository.register(EnumTypeSchema);
-export const NullTypeSchema: TypeInfo = {
-  $id: '#/$defs/NullType',
+const NullType: TypeInfo = {
+  $id: 'NullType',
   type: 'object',
   required: ['type'],
   properties: {
@@ -155,9 +149,8 @@ export const NullTypeSchema: TypeInfo = {
   }
 };
 
-SchemaRepository.register(NullTypeSchema);
-export const DateTypeSchema: TypeInfo = {
-  $id: '#/$defs/DateType',
+const DateType: TypeInfo = {
+  $id: 'DateType',
   type: 'object',
   required: ['type'],
   properties: {
@@ -170,9 +163,8 @@ export const DateTypeSchema: TypeInfo = {
   }
 };
 
-SchemaRepository.register(DateTypeSchema);
-export const BooleanTypeSchema: TypeInfo = {
-  $id: '#/$defs/BooleanType',
+const BooleanType: TypeInfo = {
+  $id: 'BooleanType',
   type: 'object',
   required: ['type'],
   properties: {
@@ -185,9 +177,8 @@ export const BooleanTypeSchema: TypeInfo = {
   }
 };
 
-SchemaRepository.register(BooleanTypeSchema);
-export const StringTypeSchema: TypeInfo = {
-  $id: '#/$defs/StringType',
+const StringType: TypeInfo = {
+  $id: 'StringType',
   type: 'object',
   required: ['type'],
   properties: {
@@ -209,9 +200,8 @@ export const StringTypeSchema: TypeInfo = {
   }
 };
 
-SchemaRepository.register(StringTypeSchema);
-export const NumberTypeSchema: TypeInfo = {
-  $id: '#/$defs/NumberType',
+const NumberType: TypeInfo = {
+  $id: 'NumberType',
   type: 'object',
   required: ['type'],
   properties: {
@@ -230,9 +220,8 @@ export const NumberTypeSchema: TypeInfo = {
   }
 };
 
-SchemaRepository.register(NumberTypeSchema);
-export const ObjectTypeSchema: TypeInfo = {
-  $id: '#/$defs/ObjectType',
+const ObjectType: TypeInfo = {
+  $id: 'ObjectType',
   type: 'object',
   required: ['type'],
   properties: {
@@ -251,13 +240,13 @@ export const ObjectTypeSchema: TypeInfo = {
     properties: {
       type: 'object',
       additionalProperties: {
-        $ref: '#/$defs/TypeInfo'
+        $ref: 'TypeInfo'
       }
     },
     additionalProperties: {
       oneOf: [
         {
-          $ref: '#/$defs/TypeInfo'
+          $ref: 'TypeInfo'
         },
         {
           type: 'boolean'
@@ -267,9 +256,8 @@ export const ObjectTypeSchema: TypeInfo = {
   }
 };
 
-SchemaRepository.register(ObjectTypeSchema);
-export const OneOfSchema: TypeInfo = {
-  $id: '#/$defs/OneOf',
+const OneOf: TypeInfo = {
+  $id: 'OneOf',
   type: 'object',
   required: ['oneOf'],
   properties: {
@@ -279,15 +267,14 @@ export const OneOfSchema: TypeInfo = {
     oneOf: {
       type: 'array',
       items: {
-        $ref: '#/$defs/TypeInfo'
+        $ref: 'TypeInfo'
       }
     }
   }
 };
 
-SchemaRepository.register(OneOfSchema);
-export const AllOfSchema: TypeInfo = {
-  $id: '#/$defs/AllOf',
+const AllOf: TypeInfo = {
+  $id: 'AllOf',
   type: 'object',
   required: ['allOf'],
   properties: {
@@ -297,85 +284,45 @@ export const AllOfSchema: TypeInfo = {
     allOf: {
       type: 'array',
       items: {
-        $ref: '#/$defs/TypeInfo'
+        $ref: 'TypeInfo'
       }
     }
   }
 };
 
-SchemaRepository.register(AllOfSchema);
-export const ModuleSchema: TypeInfo = {
-  $id: '#/$defs/Module',
+const Module: TypeInfo = {
+  $id: 'Module',
   type: 'object',
   required: ['$defs'],
   properties: {
+    $id: {
+      type: 'string'
+    },
     $defs: {
       type: 'object',
       additionalProperties: {
-        $ref: '#/$defs/TypeInfo'
+        $ref: 'TypeInfo'
       }
     }
   }
 };
-
-SchemaRepository.register(ModuleSchema);
-export const SourceFileSchema: TypeInfo = {
-  $id: '#/$defs/SourceFile',
-  type: 'object',
-  required: ['fileName', 'module'],
-  properties: {
-    fileName: {
-      type: 'string'
-    },
-    module: {
-      $ref: '#/$defs/Module'
-    }
-  }
-};
-
-SchemaRepository.register(SourceFileSchema);
-export const MetaInfoSchema: TypeInfo = {
-  $id: '#/$defs/MetaInfo',
-  type: 'object',
-  required: ['sourceFiles', 'modules', 'hasErrors'],
-  properties: {
-    sourceFiles: {
-      type: 'array',
-      items: {
-        $ref: '#/$defs/SourceFile'
-      }
-    },
-    modules: {
-      type: 'array',
-      items: {
-        $ref: '#/$defs/Module'
-      }
-    },
-    hasErrors: {
-      type: 'boolean'
-    }
-  }
-};
-
-SchemaRepository.register(MetaInfoSchema);
 
 export const MetaSchema: Module = {
+  $id: '@spcy/lib.core.reflection',
   $defs: {
-    TypeInfo: TypeInfoSchema,
-    TypeReference: TypeReferenceSchema,
-    ArrayType: ArrayTypeSchema,
-    ConstLiteral: ConstLiteralSchema,
-    EnumType: EnumTypeSchema,
-    NullType: NullTypeSchema,
-    DateType: DateTypeSchema,
-    BooleanType: BooleanTypeSchema,
-    StringType: StringTypeSchema,
-    NumberType: NumberTypeSchema,
-    ObjectType: ObjectTypeSchema,
-    OneOf: OneOfSchema,
-    AllOf: AllOfSchema,
-    Module: ModuleSchema,
-    SourceFile: SourceFileSchema,
-    MetaInfo: MetaInfoSchema
+    TypeInfo,
+    TypeReference,
+    ArrayType,
+    ConstLiteral,
+    EnumType,
+    NullType,
+    DateType,
+    BooleanType,
+    StringType,
+    NumberType,
+    ObjectType,
+    OneOf,
+    AllOf,
+    Module
   }
 };

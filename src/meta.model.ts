@@ -95,25 +95,6 @@ export interface Module {
   };
 }
 
-export interface ExportModule {
-  fileName: string;
-  moduleName: string;
-}
-
-export interface SourceFile {
-  fileName: string;
-  moduleName: string;
-  exports: ExportModule[];
-  module: Module;
-  isEmpty: boolean;
-}
-
-export interface MetaInfo {
-  sourceFiles: SourceFile[];
-  modules: Module[];
-  hasErrors: boolean;
-}
-
 export const isObjectType = (typeInfo: TypeInfo): typeInfo is ObjectType => (typeInfo as ObjectType).type === 'object';
 export const isNullType = (typeInfo: TypeInfo): typeInfo is NullType => (typeInfo as NullType).type === 'null';
 export const isStringType = (typeInfo: TypeInfo): typeInfo is StringType => (typeInfo as StringType).type === 'string';
