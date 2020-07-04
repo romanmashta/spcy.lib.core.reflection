@@ -89,14 +89,23 @@ export interface AllOf {
 }
 
 export interface Module {
+  $id?: string;
   $defs: {
     [name: string]: TypeInfo;
   };
 }
 
+export interface ExportModule {
+  fileName: string;
+  moduleName: string;
+}
+
 export interface SourceFile {
   fileName: string;
+  moduleName: string;
+  exports: ExportModule[];
   module: Module;
+  isEmpty: boolean;
 }
 
 export interface MetaInfo {
