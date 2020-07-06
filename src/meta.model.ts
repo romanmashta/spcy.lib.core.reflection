@@ -15,7 +15,7 @@ export type TypeInfo =
 export interface TypeReference {
   $id?: string;
   $ref: string;
-  $package?: string;
+  $refPackage?: string;
   $arguments?: TypeReference[];
 }
 

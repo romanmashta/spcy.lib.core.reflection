@@ -1,6 +1,8 @@
 import * as m from './meta.model';
 import { Prototype } from './prototype';
 
+const PackageName = 'lib.core.reflection';
+
 const TypeInfoType: m.TypeInfo = {
   $id: 'TypeInfo',
   oneOf: [
@@ -44,6 +46,7 @@ const TypeInfoType: m.TypeInfo = {
 };
 const TypeInfo: Prototype<m.TypeInfo> = {
   id: TypeInfoType.$id,
+  package: PackageName,
   typeInfo: TypeInfoType
 };
 const TypeReferenceType: m.TypeInfo = {
@@ -57,7 +60,7 @@ const TypeReferenceType: m.TypeInfo = {
     $ref: {
       type: 'string'
     },
-    $package: {
+    $refPackage: {
       type: 'string'
     },
     $arguments: {
@@ -70,6 +73,7 @@ const TypeReferenceType: m.TypeInfo = {
 };
 const TypeReference: Prototype<m.TypeReference> = {
   id: TypeReferenceType.$id,
+  package: PackageName,
   typeInfo: TypeReferenceType
 };
 const ArrayTypeType: m.TypeInfo = {
@@ -99,6 +103,7 @@ const ArrayTypeType: m.TypeInfo = {
 };
 const ArrayType: Prototype<m.ArrayType> = {
   id: ArrayTypeType.$id,
+  package: PackageName,
   typeInfo: ArrayTypeType
 };
 const ConstLiteralType: m.TypeInfo = {
@@ -129,6 +134,7 @@ const ConstLiteralType: m.TypeInfo = {
 };
 const ConstLiteral: Prototype<m.ConstLiteral> = {
   id: ConstLiteralType.$id,
+  package: PackageName,
   typeInfo: ConstLiteralType
 };
 const EnumTypeType: m.TypeInfo = {
@@ -149,6 +155,7 @@ const EnumTypeType: m.TypeInfo = {
 };
 const EnumType: Prototype<m.EnumType> = {
   id: EnumTypeType.$id,
+  package: PackageName,
   typeInfo: EnumTypeType
 };
 const NullTypeType: m.TypeInfo = {
@@ -166,6 +173,7 @@ const NullTypeType: m.TypeInfo = {
 };
 const NullType: Prototype<m.NullType> = {
   id: NullTypeType.$id,
+  package: PackageName,
   typeInfo: NullTypeType
 };
 const DateTypeType: m.TypeInfo = {
@@ -183,6 +191,7 @@ const DateTypeType: m.TypeInfo = {
 };
 const DateType: Prototype<m.DateType> = {
   id: DateTypeType.$id,
+  package: PackageName,
   typeInfo: DateTypeType
 };
 const BooleanTypeType: m.TypeInfo = {
@@ -200,6 +209,7 @@ const BooleanTypeType: m.TypeInfo = {
 };
 const BooleanType: Prototype<m.BooleanType> = {
   id: BooleanTypeType.$id,
+  package: PackageName,
   typeInfo: BooleanTypeType
 };
 const StringTypeType: m.TypeInfo = {
@@ -226,6 +236,7 @@ const StringTypeType: m.TypeInfo = {
 };
 const StringType: Prototype<m.StringType> = {
   id: StringTypeType.$id,
+  package: PackageName,
   typeInfo: StringTypeType
 };
 const NumberTypeType: m.TypeInfo = {
@@ -249,6 +260,7 @@ const NumberTypeType: m.TypeInfo = {
 };
 const NumberType: Prototype<m.NumberType> = {
   id: NumberTypeType.$id,
+  package: PackageName,
   typeInfo: NumberTypeType
 };
 const ObjectTypeType: m.TypeInfo = {
@@ -288,6 +300,7 @@ const ObjectTypeType: m.TypeInfo = {
 };
 const ObjectType: Prototype<m.ObjectType> = {
   id: ObjectTypeType.$id,
+  package: PackageName,
   typeInfo: ObjectTypeType
 };
 const OneOfType: m.TypeInfo = {
@@ -308,6 +321,7 @@ const OneOfType: m.TypeInfo = {
 };
 const OneOf: Prototype<m.OneOf> = {
   id: OneOfType.$id,
+  package: PackageName,
   typeInfo: OneOfType
 };
 const AllOfType: m.TypeInfo = {
@@ -328,6 +342,7 @@ const AllOfType: m.TypeInfo = {
 };
 const AllOf: Prototype<m.AllOf> = {
   id: AllOfType.$id,
+  package: PackageName,
   typeInfo: AllOfType
 };
 const ModuleType: m.TypeInfo = {
@@ -348,11 +363,12 @@ const ModuleType: m.TypeInfo = {
 };
 const Module: Prototype<m.Module> = {
   id: ModuleType.$id,
+  package: PackageName,
   typeInfo: ModuleType
 };
 
 export const MetaModule: m.Module = {
-  $id: 'lib.core.reflection',
+  $id: PackageName,
   $defs: {
     TypeInfo: TypeInfoType,
     TypeReference: TypeReferenceType,
