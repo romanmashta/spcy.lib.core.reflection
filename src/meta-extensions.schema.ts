@@ -1,7 +1,8 @@
 import * as r from './index.model';
+import * as m from './meta-extensions.model';
 import { Prototype } from './prototype';
 
-const ExportModuleType: r.TypeInfo & Prototype<r.ExportModule> = {
+const ExportModuleType: r.TypeInfo = {
   $id: 'ExportModule',
   type: 'object',
   required: ['fileName', 'importName', 'aliasName'],
@@ -17,8 +18,11 @@ const ExportModuleType: r.TypeInfo & Prototype<r.ExportModule> = {
     }
   }
 };
-
-const SourceFileType: r.TypeInfo & Prototype<r.SourceFile> = {
+const ExportModule: Prototype<m.ExportModule> = {
+  id: ExportModuleType.$id,
+  typeInfo: ExportModuleType
+};
+const SourceFileType: r.TypeInfo = {
   $id: 'SourceFile',
   type: 'object',
   required: ['fileName', 'moduleName', 'moduleFileName', 'exports', 'module', 'isEmpty'],
@@ -46,8 +50,11 @@ const SourceFileType: r.TypeInfo & Prototype<r.SourceFile> = {
     }
   }
 };
-
-const MetaInfoType: r.TypeInfo & Prototype<r.MetaInfo> = {
+const SourceFile: Prototype<m.SourceFile> = {
+  id: SourceFileType.$id,
+  typeInfo: SourceFileType
+};
+const MetaInfoType: r.TypeInfo = {
   $id: 'MetaInfo',
   type: 'object',
   required: ['sourceFiles', 'modules', 'hasErrors'],
@@ -69,6 +76,10 @@ const MetaInfoType: r.TypeInfo & Prototype<r.MetaInfo> = {
     }
   }
 };
+const MetaInfo: Prototype<m.MetaInfo> = {
+  id: MetaInfoType.$id,
+  typeInfo: MetaInfoType
+};
 
 export const MetaExtensionsModule: r.Module = {
   $id: 'lib.core.reflection',
@@ -77,4 +88,10 @@ export const MetaExtensionsModule: r.Module = {
     SourceFile: SourceFileType,
     MetaInfo: MetaInfoType
   }
+};
+
+export const Types = {
+  ExportModule,
+  SourceFile,
+  MetaInfo
 };

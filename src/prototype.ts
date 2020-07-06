@@ -1,3 +1,6 @@
+import { TypeInfo } from './meta.model';
+
 export interface Prototype<T> {
-  $id: string;
+  id?: string;
+  typeInfo: TypeInfo;
 }

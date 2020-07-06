@@ -1,7 +1,7 @@
-import * as r from './index.model';
+import * as m from './meta.model';
 import { Prototype } from './prototype';
 
-const TypeInfoType: r.TypeInfo & Prototype<r.TypeInfo> = {
+const TypeInfoType: m.TypeInfo = {
   $id: 'TypeInfo',
   oneOf: [
     {
@@ -42,8 +42,11 @@ const TypeInfoType: r.TypeInfo & Prototype<r.TypeInfo> = {
     }
   ]
 };
-
-const TypeReferenceType: r.TypeInfo & Prototype<r.TypeReference> = {
+const TypeInfo: Prototype<m.TypeInfo> = {
+  id: TypeInfoType.$id,
+  typeInfo: TypeInfoType
+};
+const TypeReferenceType: m.TypeInfo = {
   $id: 'TypeReference',
   type: 'object',
   required: ['$ref'],
@@ -65,8 +68,11 @@ const TypeReferenceType: r.TypeInfo & Prototype<r.TypeReference> = {
     }
   }
 };
-
-const ArrayTypeType: r.TypeInfo & Prototype<r.ArrayType> = {
+const TypeReference: Prototype<m.TypeReference> = {
+  id: TypeReferenceType.$id,
+  typeInfo: TypeReferenceType
+};
+const ArrayTypeType: m.TypeInfo = {
   $id: 'ArrayType',
   type: 'object',
   required: ['type', 'items'],
@@ -91,8 +97,11 @@ const ArrayTypeType: r.TypeInfo & Prototype<r.ArrayType> = {
     }
   }
 };
-
-const ConstLiteralType: r.TypeInfo & Prototype<r.ConstLiteral> = {
+const ArrayType: Prototype<m.ArrayType> = {
+  id: ArrayTypeType.$id,
+  typeInfo: ArrayTypeType
+};
+const ConstLiteralType: m.TypeInfo = {
   $id: 'ConstLiteral',
   type: 'object',
   required: ['const'],
@@ -118,8 +127,11 @@ const ConstLiteralType: r.TypeInfo & Prototype<r.ConstLiteral> = {
     }
   }
 };
-
-const EnumTypeType: r.TypeInfo & Prototype<r.EnumType> = {
+const ConstLiteral: Prototype<m.ConstLiteral> = {
+  id: ConstLiteralType.$id,
+  typeInfo: ConstLiteralType
+};
+const EnumTypeType: m.TypeInfo = {
   $id: 'EnumType',
   type: 'object',
   required: ['enum'],
@@ -135,8 +147,11 @@ const EnumTypeType: r.TypeInfo & Prototype<r.EnumType> = {
     }
   }
 };
-
-const NullTypeType: r.TypeInfo & Prototype<r.NullType> = {
+const EnumType: Prototype<m.EnumType> = {
+  id: EnumTypeType.$id,
+  typeInfo: EnumTypeType
+};
+const NullTypeType: m.TypeInfo = {
   $id: 'NullType',
   type: 'object',
   required: ['type'],
@@ -149,8 +164,11 @@ const NullTypeType: r.TypeInfo & Prototype<r.NullType> = {
     }
   }
 };
-
-const DateTypeType: r.TypeInfo & Prototype<r.DateType> = {
+const NullType: Prototype<m.NullType> = {
+  id: NullTypeType.$id,
+  typeInfo: NullTypeType
+};
+const DateTypeType: m.TypeInfo = {
   $id: 'DateType',
   type: 'object',
   required: ['type'],
@@ -163,8 +181,11 @@ const DateTypeType: r.TypeInfo & Prototype<r.DateType> = {
     }
   }
 };
-
-const BooleanTypeType: r.TypeInfo & Prototype<r.BooleanType> = {
+const DateType: Prototype<m.DateType> = {
+  id: DateTypeType.$id,
+  typeInfo: DateTypeType
+};
+const BooleanTypeType: m.TypeInfo = {
   $id: 'BooleanType',
   type: 'object',
   required: ['type'],
@@ -177,8 +198,11 @@ const BooleanTypeType: r.TypeInfo & Prototype<r.BooleanType> = {
     }
   }
 };
-
-const StringTypeType: r.TypeInfo & Prototype<r.StringType> = {
+const BooleanType: Prototype<m.BooleanType> = {
+  id: BooleanTypeType.$id,
+  typeInfo: BooleanTypeType
+};
+const StringTypeType: m.TypeInfo = {
   $id: 'StringType',
   type: 'object',
   required: ['type'],
@@ -200,8 +224,11 @@ const StringTypeType: r.TypeInfo & Prototype<r.StringType> = {
     }
   }
 };
-
-const NumberTypeType: r.TypeInfo & Prototype<r.NumberType> = {
+const StringType: Prototype<m.StringType> = {
+  id: StringTypeType.$id,
+  typeInfo: StringTypeType
+};
+const NumberTypeType: m.TypeInfo = {
   $id: 'NumberType',
   type: 'object',
   required: ['type'],
@@ -220,8 +247,11 @@ const NumberTypeType: r.TypeInfo & Prototype<r.NumberType> = {
     }
   }
 };
-
-const ObjectTypeType: r.TypeInfo & Prototype<r.ObjectType> = {
+const NumberType: Prototype<m.NumberType> = {
+  id: NumberTypeType.$id,
+  typeInfo: NumberTypeType
+};
+const ObjectTypeType: m.TypeInfo = {
   $id: 'ObjectType',
   type: 'object',
   required: ['type'],
@@ -256,8 +286,11 @@ const ObjectTypeType: r.TypeInfo & Prototype<r.ObjectType> = {
     }
   }
 };
-
-const OneOfType: r.TypeInfo & Prototype<r.OneOf> = {
+const ObjectType: Prototype<m.ObjectType> = {
+  id: ObjectTypeType.$id,
+  typeInfo: ObjectTypeType
+};
+const OneOfType: m.TypeInfo = {
   $id: 'OneOf',
   type: 'object',
   required: ['oneOf'],
@@ -273,8 +306,11 @@ const OneOfType: r.TypeInfo & Prototype<r.OneOf> = {
     }
   }
 };
-
-const AllOfType: r.TypeInfo & Prototype<r.AllOf> = {
+const OneOf: Prototype<m.OneOf> = {
+  id: OneOfType.$id,
+  typeInfo: OneOfType
+};
+const AllOfType: m.TypeInfo = {
   $id: 'AllOf',
   type: 'object',
   required: ['allOf'],
@@ -290,8 +326,11 @@ const AllOfType: r.TypeInfo & Prototype<r.AllOf> = {
     }
   }
 };
-
-const ModuleType: r.TypeInfo & Prototype<r.Module> = {
+const AllOf: Prototype<m.AllOf> = {
+  id: AllOfType.$id,
+  typeInfo: AllOfType
+};
+const ModuleType: m.TypeInfo = {
   $id: 'Module',
   type: 'object',
   required: ['$defs'],
@@ -307,8 +346,12 @@ const ModuleType: r.TypeInfo & Prototype<r.Module> = {
     }
   }
 };
+const Module: Prototype<m.Module> = {
+  id: ModuleType.$id,
+  typeInfo: ModuleType
+};
 
-export const MetaModule: r.Module = {
+export const MetaModule: m.Module = {
   $id: 'lib.core.reflection',
   $defs: {
     TypeInfo: TypeInfoType,
@@ -326,4 +369,21 @@ export const MetaModule: r.Module = {
     AllOf: AllOfType,
     Module: ModuleType
   }
+};
+
+export const Types = {
+  TypeInfo,
+  TypeReference,
+  ArrayType,
+  ConstLiteral,
+  EnumType,
+  NullType,
+  DateType,
+  BooleanType,
+  StringType,
+  NumberType,
+  ObjectType,
+  OneOf,
+  AllOf,
+  Module
 };

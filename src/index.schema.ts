@@ -1,6 +1,6 @@
 import * as r from './index.model';
-import { MetaModule } from './meta.schema';
-import { MetaExtensionsModule } from './meta-extensions.schema';
+import { MetaModule, Types as MetaTypes } from './meta.schema';
+import { MetaExtensionsModule, Types as MetaExtensionsTypes } from './meta-extensions.schema';
 
 export const IndexModule: r.Module = {
   $id: 'lib.core.reflection',
@@ -8,4 +8,9 @@ export const IndexModule: r.Module = {
     ...MetaModule.$defs,
     ...MetaExtensionsModule.$defs
   }
+};
+
+export const Types = {
+  ...MetaTypes,
+  ...MetaExtensionsTypes
 };
