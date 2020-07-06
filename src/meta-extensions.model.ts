@@ -9,6 +9,7 @@ export interface ExportModule {
 export interface SourceFile {
   fileName: string;
   moduleName: string;
+  moduleFileName: string;
   exports: ExportModule[];
   module: Module;
   isEmpty: boolean;

@@ -1,6 +1,7 @@
-import { TypeInfo, Module } from './index.model';
+import * as r from './index.model';
+import { Prototype } from './prototype';
 
-const ExportModule: TypeInfo = {
+const ExportModuleType: r.TypeInfo & Prototype<r.ExportModule> = {
   $id: 'ExportModule',
   type: 'object',
   required: ['fileName', 'importName', 'aliasName'],
@@ -17,15 +18,18 @@ const ExportModule: TypeInfo = {
   }
 };
 
-const SourceFile: TypeInfo = {
+const SourceFileType: r.TypeInfo & Prototype<r.SourceFile> = {
   $id: 'SourceFile',
   type: 'object',
-  required: ['fileName', 'moduleName', 'exports', 'module', 'isEmpty'],
+  required: ['fileName', 'moduleName', 'moduleFileName', 'exports', 'module', 'isEmpty'],
   properties: {
     fileName: {
       type: 'string'
     },
     moduleName: {
+      type: 'string'
+    },
+    moduleFileName: {
       type: 'string'
     },
     exports: {
@@ -43,7 +47,7 @@ const SourceFile: TypeInfo = {
   }
 };
 
-const MetaInfo: TypeInfo = {
+const MetaInfoType: r.TypeInfo & Prototype<r.MetaInfo> = {
   $id: 'MetaInfo',
   type: 'object',
   required: ['sourceFiles', 'modules', 'hasErrors'],
@@ -66,11 +70,11 @@ const MetaInfo: TypeInfo = {
   }
 };
 
-export const MetaExtensionsSchema: Module = {
-  $id: '@spcy/lib.core.reflection',
+export const MetaExtensionsModule: r.Module = {
+  $id: 'lib.core.reflection',
   $defs: {
-    ExportModule,
-    SourceFile,
-    MetaInfo
+    ExportModule: ExportModuleType,
+    SourceFile: SourceFileType,
+    MetaInfo: MetaInfoType
   }
 };

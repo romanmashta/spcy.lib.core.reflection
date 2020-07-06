@@ -2,7 +2,7 @@
 
 exports[`Comply interface with refs 1`] = `
 {
-  "$id": "@spcy/lib.core.reflection",
+  "$id": "lib.core.reflection",
   "$defs": {
     "TypeInfo": {
       "$id": "TypeInfo",
@@ -350,6 +350,7 @@ exports[`Comply interface with refs 1`] = `
       "required": [
         "fileName",
         "moduleName",
+        "moduleFileName",
         "exports",
         "module",
         "isEmpty"
@@ -359,6 +360,9 @@ exports[`Comply interface with refs 1`] = `
           "type": "string"
         },
         "moduleName": {
+          "type": "string"
+        },
+        "moduleFileName": {
           "type": "string"
         },
         "exports": {

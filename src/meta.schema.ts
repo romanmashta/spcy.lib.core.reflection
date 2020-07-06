@@ -1,6 +1,7 @@
-import { TypeInfo, Module } from './index.model';
+import * as r from './index.model';
+import { Prototype } from './prototype';
 
-const TypeInfo: TypeInfo = {
+const TypeInfoType: r.TypeInfo & Prototype<r.TypeInfo> = {
   $id: 'TypeInfo',
   oneOf: [
     {
@@ -42,7 +43,7 @@ const TypeInfo: TypeInfo = {
   ]
 };
 
-const TypeReference: TypeInfo = {
+const TypeReferenceType: r.TypeInfo & Prototype<r.TypeReference> = {
   $id: 'TypeReference',
   type: 'object',
   required: ['$ref'],
@@ -65,7 +66,7 @@ const TypeReference: TypeInfo = {
   }
 };
 
-const ArrayType: TypeInfo = {
+const ArrayTypeType: r.TypeInfo & Prototype<r.ArrayType> = {
   $id: 'ArrayType',
   type: 'object',
   required: ['type', 'items'],
@@ -91,7 +92,7 @@ const ArrayType: TypeInfo = {
   }
 };
 
-const ConstLiteral: TypeInfo = {
+const ConstLiteralType: r.TypeInfo & Prototype<r.ConstLiteral> = {
   $id: 'ConstLiteral',
   type: 'object',
   required: ['const'],
@@ -118,7 +119,7 @@ const ConstLiteral: TypeInfo = {
   }
 };
 
-const EnumType: TypeInfo = {
+const EnumTypeType: r.TypeInfo & Prototype<r.EnumType> = {
   $id: 'EnumType',
   type: 'object',
   required: ['enum'],
@@ -135,7 +136,7 @@ const EnumType: TypeInfo = {
   }
 };
 
-const NullType: TypeInfo = {
+const NullTypeType: r.TypeInfo & Prototype<r.NullType> = {
   $id: 'NullType',
   type: 'object',
   required: ['type'],
@@ -149,7 +150,7 @@ const NullType: TypeInfo = {
   }
 };
 
-const DateType: TypeInfo = {
+const DateTypeType: r.TypeInfo & Prototype<r.DateType> = {
   $id: 'DateType',
   type: 'object',
   required: ['type'],
@@ -163,7 +164,7 @@ const DateType: TypeInfo = {
   }
 };
 
-const BooleanType: TypeInfo = {
+const BooleanTypeType: r.TypeInfo & Prototype<r.BooleanType> = {
   $id: 'BooleanType',
   type: 'object',
   required: ['type'],
@@ -177,7 +178,7 @@ const BooleanType: TypeInfo = {
   }
 };
 
-const StringType: TypeInfo = {
+const StringTypeType: r.TypeInfo & Prototype<r.StringType> = {
   $id: 'StringType',
   type: 'object',
   required: ['type'],
@@ -200,7 +201,7 @@ const StringType: TypeInfo = {
   }
 };
 
-const NumberType: TypeInfo = {
+const NumberTypeType: r.TypeInfo & Prototype<r.NumberType> = {
   $id: 'NumberType',
   type: 'object',
   required: ['type'],
@@ -220,7 +221,7 @@ const NumberType: TypeInfo = {
   }
 };
 
-const ObjectType: TypeInfo = {
+const ObjectTypeType: r.TypeInfo & Prototype<r.ObjectType> = {
   $id: 'ObjectType',
   type: 'object',
   required: ['type'],
@@ -256,7 +257,7 @@ const ObjectType: TypeInfo = {
   }
 };
 
-const OneOf: TypeInfo = {
+const OneOfType: r.TypeInfo & Prototype<r.OneOf> = {
   $id: 'OneOf',
   type: 'object',
   required: ['oneOf'],
@@ -273,7 +274,7 @@ const OneOf: TypeInfo = {
   }
 };
 
-const AllOf: TypeInfo = {
+const AllOfType: r.TypeInfo & Prototype<r.AllOf> = {
   $id: 'AllOf',
   type: 'object',
   required: ['allOf'],
@@ -290,7 +291,7 @@ const AllOf: TypeInfo = {
   }
 };
 
-const Module: TypeInfo = {
+const ModuleType: r.TypeInfo & Prototype<r.Module> = {
   $id: 'Module',
   type: 'object',
   required: ['$defs'],
@@ -307,22 +308,22 @@ const Module: TypeInfo = {
   }
 };
 
-export const MetaSchema: Module = {
-  $id: '@spcy/lib.core.reflection',
+export const MetaModule: r.Module = {
+  $id: 'lib.core.reflection',
   $defs: {
-    TypeInfo,
-    TypeReference,
-    ArrayType,
-    ConstLiteral,
-    EnumType,
-    NullType,
-    DateType,
-    BooleanType,
-    StringType,
-    NumberType,
-    ObjectType,
-    OneOf,
-    AllOf,
-    Module
+    TypeInfo: TypeInfoType,
+    TypeReference: TypeReferenceType,
+    ArrayType: ArrayTypeType,
+    ConstLiteral: ConstLiteralType,
+    EnumType: EnumTypeType,
+    NullType: NullTypeType,
+    DateType: DateTypeType,
+    BooleanType: BooleanTypeType,
+    StringType: StringTypeType,
+    NumberType: NumberTypeType,
+    ObjectType: ObjectTypeType,
+    OneOf: OneOfType,
+    AllOf: AllOfType,
+    Module: ModuleType
   }
 };

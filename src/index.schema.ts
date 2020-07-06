@@ -1,11 +1,11 @@
-import { Module } from './meta.model';
-import { MetaSchema } from './meta.schema';
-import { MetaExtensionsSchema } from './meta-extensions.schema';
+import * as r from './index.model';
+import { MetaModule } from './meta.schema';
+import { MetaExtensionsModule } from './meta-extensions.schema';
 
-export const IndexSchema: Module = {
-  $id: '@spcy/lib.core.reflection',
+export const IndexModule: r.Module = {
+  $id: 'lib.core.reflection',
   $defs: {
-    ...MetaSchema.$defs,
-    ...MetaExtensionsSchema.$defs
+    ...MetaModule.$defs,
+    ...MetaExtensionsModule.$defs
   }
 };

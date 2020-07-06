@@ -1,6 +1,6 @@
 import '@spcy/lib.dev.tasty';
-import { IndexSchema } from '../src';
+import { IndexModule } from '../src';
 
 test('Comply interface with refs', () => {
-  expect(IndexSchema).toMatchTastyShot('meta-schema');
+  expect(IndexModule).toMatchTastyShot('meta-schema');
 });
