@@ -1,10 +1,9 @@
 import * as r from './reflection';
 import * as m from './meta.model';
 
-const PackageName = 'lib.core.reflection';
-
 const TypeInfoType: r.TypeInfo = {
   $id: 'TypeInfo',
+  $package: 'lib.core.reflection',
   oneOf: [
     {
       $ref: 'ObjectType'
@@ -44,13 +43,16 @@ const TypeInfoType: r.TypeInfo = {
     }
   ]
 };
+
 const TypeInfo: r.Prototype<m.TypeInfo> = {
-  id: TypeInfoType.$id,
-  package: PackageName,
+  $ref: TypeInfoType.$id!,
+  $refPackage: TypeInfoType.$package!,
   typeInfo: TypeInfoType
 };
+
 const TypeReferenceType: r.TypeInfo = {
   $id: 'TypeReference',
+  $package: 'lib.core.reflection',
   type: 'object',
   required: ['$ref'],
   properties: {
@@ -74,13 +76,16 @@ const TypeReferenceType: r.TypeInfo = {
     }
   }
 };
+
 const TypeReference: r.Prototype<m.TypeReference> = {
-  id: TypeReferenceType.$id,
-  package: PackageName,
+  $ref: TypeReferenceType.$id!,
+  $refPackage: TypeReferenceType.$package!,
   typeInfo: TypeReferenceType
 };
+
 const ArrayTypeType: r.TypeInfo = {
   $id: 'ArrayType',
+  $package: 'lib.core.reflection',
   type: 'object',
   required: ['type', 'items'],
   properties: {
@@ -107,13 +112,16 @@ const ArrayTypeType: r.TypeInfo = {
     }
   }
 };
+
 const ArrayType: r.Prototype<m.ArrayType> = {
-  id: ArrayTypeType.$id,
-  package: PackageName,
+  $ref: ArrayTypeType.$id!,
+  $refPackage: ArrayTypeType.$package!,
   typeInfo: ArrayTypeType
 };
+
 const ConstLiteralType: r.TypeInfo = {
   $id: 'ConstLiteral',
+  $package: 'lib.core.reflection',
   type: 'object',
   required: ['const'],
   properties: {
@@ -141,13 +149,16 @@ const ConstLiteralType: r.TypeInfo = {
     }
   }
 };
+
 const ConstLiteral: r.Prototype<m.ConstLiteral> = {
-  id: ConstLiteralType.$id,
-  package: PackageName,
+  $ref: ConstLiteralType.$id!,
+  $refPackage: ConstLiteralType.$package!,
   typeInfo: ConstLiteralType
 };
+
 const EnumTypeType: r.TypeInfo = {
   $id: 'EnumType',
+  $package: 'lib.core.reflection',
   type: 'object',
   required: ['enum'],
   properties: {
@@ -165,13 +176,16 @@ const EnumTypeType: r.TypeInfo = {
     }
   }
 };
+
 const EnumType: r.Prototype<m.EnumType> = {
-  id: EnumTypeType.$id,
-  package: PackageName,
+  $ref: EnumTypeType.$id!,
+  $refPackage: EnumTypeType.$package!,
   typeInfo: EnumTypeType
 };
+
 const NullTypeType: r.TypeInfo = {
   $id: 'NullType',
+  $package: 'lib.core.reflection',
   type: 'object',
   required: ['type'],
   properties: {
@@ -186,13 +200,16 @@ const NullTypeType: r.TypeInfo = {
     }
   }
 };
+
 const NullType: r.Prototype<m.NullType> = {
-  id: NullTypeType.$id,
-  package: PackageName,
+  $ref: NullTypeType.$id!,
+  $refPackage: NullTypeType.$package!,
   typeInfo: NullTypeType
 };
+
 const DateTypeType: r.TypeInfo = {
   $id: 'DateType',
+  $package: 'lib.core.reflection',
   type: 'object',
   required: ['type'],
   properties: {
@@ -207,13 +224,16 @@ const DateTypeType: r.TypeInfo = {
     }
   }
 };
+
 const DateType: r.Prototype<m.DateType> = {
-  id: DateTypeType.$id,
-  package: PackageName,
+  $ref: DateTypeType.$id!,
+  $refPackage: DateTypeType.$package!,
   typeInfo: DateTypeType
 };
+
 const BooleanTypeType: r.TypeInfo = {
   $id: 'BooleanType',
+  $package: 'lib.core.reflection',
   type: 'object',
   required: ['type'],
   properties: {
@@ -228,13 +248,16 @@ const BooleanTypeType: r.TypeInfo = {
     }
   }
 };
+
 const BooleanType: r.Prototype<m.BooleanType> = {
-  id: BooleanTypeType.$id,
-  package: PackageName,
+  $ref: BooleanTypeType.$id!,
+  $refPackage: BooleanTypeType.$package!,
   typeInfo: BooleanTypeType
 };
+
 const StringTypeType: r.TypeInfo = {
   $id: 'StringType',
+  $package: 'lib.core.reflection',
   type: 'object',
   required: ['type'],
   properties: {
@@ -258,13 +281,16 @@ const StringTypeType: r.TypeInfo = {
     }
   }
 };
+
 const StringType: r.Prototype<m.StringType> = {
-  id: StringTypeType.$id,
-  package: PackageName,
+  $ref: StringTypeType.$id!,
+  $refPackage: StringTypeType.$package!,
   typeInfo: StringTypeType
 };
+
 const NumberTypeType: r.TypeInfo = {
   $id: 'NumberType',
+  $package: 'lib.core.reflection',
   type: 'object',
   required: ['type'],
   properties: {
@@ -285,13 +311,16 @@ const NumberTypeType: r.TypeInfo = {
     }
   }
 };
+
 const NumberType: r.Prototype<m.NumberType> = {
-  id: NumberTypeType.$id,
-  package: PackageName,
+  $ref: NumberTypeType.$id!,
+  $refPackage: NumberTypeType.$package!,
   typeInfo: NumberTypeType
 };
+
 const ObjectTypeType: r.TypeInfo = {
   $id: 'ObjectType',
+  $package: 'lib.core.reflection',
   type: 'object',
   required: ['type'],
   properties: {
@@ -328,13 +357,16 @@ const ObjectTypeType: r.TypeInfo = {
     }
   }
 };
+
 const ObjectType: r.Prototype<m.ObjectType> = {
-  id: ObjectTypeType.$id,
-  package: PackageName,
+  $ref: ObjectTypeType.$id!,
+  $refPackage: ObjectTypeType.$package!,
   typeInfo: ObjectTypeType
 };
+
 const OneOfType: r.TypeInfo = {
   $id: 'OneOf',
+  $package: 'lib.core.reflection',
   type: 'object',
   required: ['oneOf'],
   properties: {
@@ -352,13 +384,16 @@ const OneOfType: r.TypeInfo = {
     }
   }
 };
+
 const OneOf: r.Prototype<m.OneOf> = {
-  id: OneOfType.$id,
-  package: PackageName,
+  $ref: OneOfType.$id!,
+  $refPackage: OneOfType.$package!,
   typeInfo: OneOfType
 };
+
 const AllOfType: r.TypeInfo = {
   $id: 'AllOf',
+  $package: 'lib.core.reflection',
   type: 'object',
   required: ['allOf'],
   properties: {
@@ -376,13 +411,16 @@ const AllOfType: r.TypeInfo = {
     }
   }
 };
+
 const AllOf: r.Prototype<m.AllOf> = {
-  id: AllOfType.$id,
-  package: PackageName,
+  $ref: AllOfType.$id!,
+  $refPackage: AllOfType.$package!,
   typeInfo: AllOfType
 };
+
 const ModuleType: r.TypeInfo = {
   $id: 'Module',
+  $package: 'lib.core.reflection',
   type: 'object',
   required: ['$defs'],
   properties: {
@@ -400,14 +438,15 @@ const ModuleType: r.TypeInfo = {
     }
   }
 };
+
 const Module: r.Prototype<m.Module> = {
-  id: ModuleType.$id,
-  package: PackageName,
+  $ref: ModuleType.$id!,
+  $refPackage: ModuleType.$package!,
   typeInfo: ModuleType
 };
 
 export const MetaModule: r.Module = {
-  $id: PackageName,
+  $id: 'lib.core.reflection',
   $defs: {
     TypeInfo: TypeInfoType,
     TypeReference: TypeReferenceType,

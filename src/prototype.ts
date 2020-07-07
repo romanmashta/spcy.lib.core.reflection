@@ -1,8 +1,6 @@
-import { TypeInfo } from './meta.model';
+import { TypeInfo, TypeReference } from './meta.model';
 
-export interface PrototypeInfo {
-  id?: string;
-  package: string;
+export interface PrototypeInfo extends TypeReference {
   typeInfo: TypeInfo;
 }
 

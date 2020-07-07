@@ -1,10 +1,9 @@
 import * as r from './reflection';
 import * as m from './meta-extensions.model';
 
-const PackageName = 'lib.core.reflection';
-
 const ExportModuleType: r.TypeInfo = {
   $id: 'ExportModule',
+  $package: 'lib.core.reflection',
   type: 'object',
   required: ['fileName', 'importName', 'aliasName'],
   properties: {
@@ -19,13 +18,16 @@ const ExportModuleType: r.TypeInfo = {
     }
   }
 };
+
 const ExportModule: r.Prototype<m.ExportModule> = {
-  id: ExportModuleType.$id,
-  package: PackageName,
+  $ref: ExportModuleType.$id!,
+  $refPackage: ExportModuleType.$package!,
   typeInfo: ExportModuleType
 };
+
 const SourceFileType: r.TypeInfo = {
   $id: 'SourceFile',
+  $package: 'lib.core.reflection',
   type: 'object',
   required: ['fileName', 'moduleName', 'moduleFileName', 'exports', 'module', 'isEmpty'],
   properties: {
@@ -52,13 +54,16 @@ const SourceFileType: r.TypeInfo = {
     }
   }
 };
+
 const SourceFile: r.Prototype<m.SourceFile> = {
-  id: SourceFileType.$id,
-  package: PackageName,
+  $ref: SourceFileType.$id!,
+  $refPackage: SourceFileType.$package!,
   typeInfo: SourceFileType
 };
+
 const MetaInfoType: r.TypeInfo = {
   $id: 'MetaInfo',
+  $package: 'lib.core.reflection',
   type: 'object',
   required: ['sourceFiles', 'modules', 'hasErrors'],
   properties: {
@@ -79,14 +84,15 @@ const MetaInfoType: r.TypeInfo = {
     }
   }
 };
+
 const MetaInfo: r.Prototype<m.MetaInfo> = {
-  id: MetaInfoType.$id,
-  package: PackageName,
+  $ref: MetaInfoType.$id!,
+  $refPackage: MetaInfoType.$package!,
   typeInfo: MetaInfoType
 };
 
 export const MetaExtensionsModule: r.Module = {
-  $id: PackageName,
+  $id: 'lib.core.reflection',
   $defs: {
     ExportModule: ExportModuleType,
     SourceFile: SourceFileType,
