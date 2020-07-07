@@ -4,4 +4,6 @@ export interface PrototypeInfo extends TypeReference {
   typeInfo: TypeInfo;
 }
 
-export type Prototype<T> = PrototypeInfo;
+export interface Prototype<T> extends PrototypeInfo {
+  _?: string;
+}
