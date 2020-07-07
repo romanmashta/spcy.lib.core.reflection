@@ -6,40 +6,52 @@ const TypeInfoType: r.TypeInfo = {
   $package: 'lib.core.reflection',
   oneOf: [
     {
-      $ref: 'ObjectType'
+      $ref: 'ObjectType',
+      $refPackage: 'lib.core.reflection'
     },
     {
-      $ref: 'StringType'
+      $ref: 'StringType',
+      $refPackage: 'lib.core.reflection'
     },
     {
-      $ref: 'BooleanType'
+      $ref: 'BooleanType',
+      $refPackage: 'lib.core.reflection'
     },
     {
-      $ref: 'NumberType'
+      $ref: 'NumberType',
+      $refPackage: 'lib.core.reflection'
     },
     {
-      $ref: 'DateType'
+      $ref: 'DateType',
+      $refPackage: 'lib.core.reflection'
     },
     {
-      $ref: 'NullType'
+      $ref: 'NullType',
+      $refPackage: 'lib.core.reflection'
     },
     {
-      $ref: 'ArrayType'
+      $ref: 'ArrayType',
+      $refPackage: 'lib.core.reflection'
     },
     {
-      $ref: 'TypeReference'
+      $ref: 'TypeReference',
+      $refPackage: 'lib.core.reflection'
     },
     {
-      $ref: 'EnumType'
+      $ref: 'EnumType',
+      $refPackage: 'lib.core.reflection'
     },
     {
-      $ref: 'ConstLiteral'
+      $ref: 'ConstLiteral',
+      $refPackage: 'lib.core.reflection'
     },
     {
-      $ref: 'OneOf'
+      $ref: 'OneOf',
+      $refPackage: 'lib.core.reflection'
     },
     {
-      $ref: 'AllOf'
+      $ref: 'AllOf',
+      $refPackage: 'lib.core.reflection'
     }
   ]
 };
@@ -54,7 +66,7 @@ const TypeReferenceType: r.TypeInfo = {
   $id: 'TypeReference',
   $package: 'lib.core.reflection',
   type: 'object',
-  required: ['$ref'],
+  required: ['$ref', '$refPackage'],
   properties: {
     $id: {
       type: 'string'
@@ -71,7 +83,8 @@ const TypeReferenceType: r.TypeInfo = {
     $arguments: {
       type: 'array',
       items: {
-        $ref: 'TypeReference'
+        $ref: 'TypeReference',
+        $refPackage: 'lib.core.reflection'
       }
     }
   }
@@ -99,7 +112,8 @@ const ArrayTypeType: r.TypeInfo = {
       const: 'array'
     },
     items: {
-      $ref: 'TypeInfo'
+      $ref: 'TypeInfo',
+      $refPackage: 'lib.core.reflection'
     },
     minItems: {
       type: 'number'
@@ -342,13 +356,15 @@ const ObjectTypeType: r.TypeInfo = {
     properties: {
       type: 'object',
       additionalProperties: {
-        $ref: 'TypeInfo'
+        $ref: 'TypeInfo',
+        $refPackage: 'lib.core.reflection'
       }
     },
     additionalProperties: {
       oneOf: [
         {
-          $ref: 'TypeInfo'
+          $ref: 'TypeInfo',
+          $refPackage: 'lib.core.reflection'
         },
         {
           type: 'boolean'
@@ -379,7 +395,8 @@ const OneOfType: r.TypeInfo = {
     oneOf: {
       type: 'array',
       items: {
-        $ref: 'TypeInfo'
+        $ref: 'TypeInfo',
+        $refPackage: 'lib.core.reflection'
       }
     }
   }
@@ -406,7 +423,8 @@ const AllOfType: r.TypeInfo = {
     allOf: {
       type: 'array',
       items: {
-        $ref: 'TypeInfo'
+        $ref: 'TypeInfo',
+        $refPackage: 'lib.core.reflection'
       }
     }
   }
@@ -433,7 +451,8 @@ const ModuleType: r.TypeInfo = {
     $defs: {
       type: 'object',
       additionalProperties: {
-        $ref: 'TypeInfo'
+        $ref: 'TypeInfo',
+        $refPackage: 'lib.core.reflection'
       }
     }
   }

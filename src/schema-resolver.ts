@@ -6,9 +6,9 @@ export interface Prototypes {
 }
 
 export interface SchemaResolver {
-  resolve(packageRef: string, ref: string): TypeInfo | undefined;
+  resolve(refPackage: string, ref: string): TypeInfo | undefined;
 
-  register(packageRef: string, ref: string, def: TypeInfo): void;
+  register(refPackage: string, ref: string, def: TypeInfo): void;
 
   registerTypes(types: Prototypes): void;
 }

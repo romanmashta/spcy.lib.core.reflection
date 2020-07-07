@@ -43,11 +43,13 @@ const SourceFileType: r.TypeInfo = {
     exports: {
       type: 'array',
       items: {
-        $ref: 'ExportModule'
+        $ref: 'ExportModule',
+        $refPackage: 'lib.core.reflection'
       }
     },
     module: {
-      $ref: 'Module'
+      $ref: 'Module',
+      $refPackage: 'lib.core.reflection'
     },
     isEmpty: {
       type: 'boolean'
@@ -70,13 +72,15 @@ const MetaInfoType: r.TypeInfo = {
     sourceFiles: {
       type: 'array',
       items: {
-        $ref: 'SourceFile'
+        $ref: 'SourceFile',
+        $refPackage: 'lib.core.reflection'
       }
     },
     modules: {
       type: 'array',
       items: {
-        $ref: 'Module'
+        $ref: 'Module',
+        $refPackage: 'lib.core.reflection'
       }
     },
     hasErrors: {

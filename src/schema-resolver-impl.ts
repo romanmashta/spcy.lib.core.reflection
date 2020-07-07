@@ -8,13 +8,13 @@ type PackageMap = Map<string, TypesMap>;
 class SchemaResolverImpl implements SchemaResolver {
   private repo: PackageMap = new Map<string, TypesMap>();
 
-  resolve = (packageRef: string, ref: string): TypeInfo | undefined => this.repo.get(packageRef)?.get(ref);
+  resolve = (refPackage: string, ref: string): TypeInfo | undefined => this.repo.get(refPackage)?.get(ref);
 
-  register(packageRef: string, ref: string, def: TypeInfo) {
-    let map = this.repo.get(packageRef);
+  register(refPackage: string, ref: string, def: TypeInfo) {
+    let map = this.repo.get(refPackage);
     if (!map) {
       map = new Map<string, TypeInfo>();
-      this.repo.set(packageRef, map);
+      this.repo.set(refPackage, map);
     }
     map.set(ref, def);
   }
