@@ -14,6 +14,7 @@ export type TypeInfo =
 
 export interface TypeReference {
   $id?: string;
+  $package?: string;
   $ref: string;
   $refPackage?: string;
   $arguments?: TypeReference[];
@@ -21,6 +22,7 @@ export interface TypeReference {
 
 export interface ArrayType {
   $id?: string;
+  $package?: string;
   type: 'array';
   items: TypeInfo;
   minItems?: number;
@@ -30,31 +32,37 @@ export interface ArrayType {
 
 export interface ConstLiteral {
   $id?: string;
+  $package?: string;
   const: string | number | boolean | null;
 }
 
 export interface EnumType {
   $id?: string;
+  $package?: string;
   enum: string[];
 }
 
 export interface NullType {
   $id?: string;
+  $package?: string;
   type: 'null';
 }
 
 export interface DateType {
   $id?: string;
+  $package?: string;
   type: 'date';
 }
 
 export interface BooleanType {
   $id?: string;
+  $package?: string;
   type: 'boolean';
 }
 
 export interface StringType {
   $id?: string;
+  $package?: string;
   type: 'string';
   minLength?: number;
   maxLength?: number;
@@ -63,6 +71,7 @@ export interface StringType {
 
 export interface NumberType {
   $id?: string;
+  $package?: string;
   type: 'number';
   minimum?: number;
   maximum?: number;
@@ -70,6 +79,7 @@ export interface NumberType {
 
 export interface ObjectType {
   $id?: string;
+  $package?: string;
   type: 'object';
   required?: string[];
   properties?: {
@@ -80,16 +90,19 @@ export interface ObjectType {
 
 export interface OneOf {
   $id?: string;
+  $package?: string;
   oneOf: TypeInfo[];
 }
 
 export interface AllOf {
   $id?: string;
+  $package?: string;
   allOf: TypeInfo[];
 }
 
 export interface Module {
   $id?: string;
+  $package?: string;
   $defs: {
     [name: string]: TypeInfo;
   };

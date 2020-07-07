@@ -1,4 +1,4 @@
-import * as r from './index.model';
+import * as r from './reflection';
 import { MetaModule, Types as MetaTypes } from './meta.schema';
 import { MetaExtensionsModule, Types as MetaExtensionsTypes } from './meta-extensions.schema';
 

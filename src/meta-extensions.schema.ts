@@ -1,6 +1,5 @@
-import * as r from './index.model';
+import * as r from './reflection';
 import * as m from './meta-extensions.model';
-import { Prototype } from './prototype';
 
 const PackageName = 'lib.core.reflection';
 
@@ -20,7 +19,7 @@ const ExportModuleType: r.TypeInfo = {
     }
   }
 };
-const ExportModule: Prototype<m.ExportModule> = {
+const ExportModule: r.Prototype<m.ExportModule> = {
   id: ExportModuleType.$id,
   package: PackageName,
   typeInfo: ExportModuleType
@@ -53,7 +52,7 @@ const SourceFileType: r.TypeInfo = {
     }
   }
 };
-const SourceFile: Prototype<m.SourceFile> = {
+const SourceFile: r.Prototype<m.SourceFile> = {
   id: SourceFileType.$id,
   package: PackageName,
   typeInfo: SourceFileType
@@ -80,7 +79,7 @@ const MetaInfoType: r.TypeInfo = {
     }
   }
 };
-const MetaInfo: Prototype<m.MetaInfo> = {
+const MetaInfo: r.Prototype<m.MetaInfo> = {
   id: MetaInfoType.$id,
   package: PackageName,
   typeInfo: MetaInfoType

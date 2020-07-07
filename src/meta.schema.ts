@@ -1,9 +1,9 @@
+import * as r from './reflection';
 import * as m from './meta.model';
-import { Prototype } from './prototype';
 
 const PackageName = 'lib.core.reflection';
 
-const TypeInfoType: m.TypeInfo = {
+const TypeInfoType: r.TypeInfo = {
   $id: 'TypeInfo',
   oneOf: [
     {
@@ -44,17 +44,20 @@ const TypeInfoType: m.TypeInfo = {
     }
   ]
 };
-const TypeInfo: Prototype<m.TypeInfo> = {
+const TypeInfo: r.Prototype<m.TypeInfo> = {
   id: TypeInfoType.$id,
   package: PackageName,
   typeInfo: TypeInfoType
 };
-const TypeReferenceType: m.TypeInfo = {
+const TypeReferenceType: r.TypeInfo = {
   $id: 'TypeReference',
   type: 'object',
   required: ['$ref'],
   properties: {
     $id: {
+      type: 'string'
+    },
+    $package: {
       type: 'string'
     },
     $ref: {
@@ -71,17 +74,20 @@ const TypeReferenceType: m.TypeInfo = {
     }
   }
 };
-const TypeReference: Prototype<m.TypeReference> = {
+const TypeReference: r.Prototype<m.TypeReference> = {
   id: TypeReferenceType.$id,
   package: PackageName,
   typeInfo: TypeReferenceType
 };
-const ArrayTypeType: m.TypeInfo = {
+const ArrayTypeType: r.TypeInfo = {
   $id: 'ArrayType',
   type: 'object',
   required: ['type', 'items'],
   properties: {
     $id: {
+      type: 'string'
+    },
+    $package: {
       type: 'string'
     },
     type: {
@@ -101,17 +107,20 @@ const ArrayTypeType: m.TypeInfo = {
     }
   }
 };
-const ArrayType: Prototype<m.ArrayType> = {
+const ArrayType: r.Prototype<m.ArrayType> = {
   id: ArrayTypeType.$id,
   package: PackageName,
   typeInfo: ArrayTypeType
 };
-const ConstLiteralType: m.TypeInfo = {
+const ConstLiteralType: r.TypeInfo = {
   $id: 'ConstLiteral',
   type: 'object',
   required: ['const'],
   properties: {
     $id: {
+      type: 'string'
+    },
+    $package: {
       type: 'string'
     },
     const: {
@@ -132,17 +141,20 @@ const ConstLiteralType: m.TypeInfo = {
     }
   }
 };
-const ConstLiteral: Prototype<m.ConstLiteral> = {
+const ConstLiteral: r.Prototype<m.ConstLiteral> = {
   id: ConstLiteralType.$id,
   package: PackageName,
   typeInfo: ConstLiteralType
 };
-const EnumTypeType: m.TypeInfo = {
+const EnumTypeType: r.TypeInfo = {
   $id: 'EnumType',
   type: 'object',
   required: ['enum'],
   properties: {
     $id: {
+      type: 'string'
+    },
+    $package: {
       type: 'string'
     },
     enum: {
@@ -153,12 +165,12 @@ const EnumTypeType: m.TypeInfo = {
     }
   }
 };
-const EnumType: Prototype<m.EnumType> = {
+const EnumType: r.Prototype<m.EnumType> = {
   id: EnumTypeType.$id,
   package: PackageName,
   typeInfo: EnumTypeType
 };
-const NullTypeType: m.TypeInfo = {
+const NullTypeType: r.TypeInfo = {
   $id: 'NullType',
   type: 'object',
   required: ['type'],
@@ -166,17 +178,20 @@ const NullTypeType: m.TypeInfo = {
     $id: {
       type: 'string'
     },
+    $package: {
+      type: 'string'
+    },
     type: {
       const: 'null'
     }
   }
 };
-const NullType: Prototype<m.NullType> = {
+const NullType: r.Prototype<m.NullType> = {
   id: NullTypeType.$id,
   package: PackageName,
   typeInfo: NullTypeType
 };
-const DateTypeType: m.TypeInfo = {
+const DateTypeType: r.TypeInfo = {
   $id: 'DateType',
   type: 'object',
   required: ['type'],
@@ -184,17 +199,20 @@ const DateTypeType: m.TypeInfo = {
     $id: {
       type: 'string'
     },
+    $package: {
+      type: 'string'
+    },
     type: {
       const: 'date'
     }
   }
 };
-const DateType: Prototype<m.DateType> = {
+const DateType: r.Prototype<m.DateType> = {
   id: DateTypeType.$id,
   package: PackageName,
   typeInfo: DateTypeType
 };
-const BooleanTypeType: m.TypeInfo = {
+const BooleanTypeType: r.TypeInfo = {
   $id: 'BooleanType',
   type: 'object',
   required: ['type'],
@@ -202,22 +220,28 @@ const BooleanTypeType: m.TypeInfo = {
     $id: {
       type: 'string'
     },
+    $package: {
+      type: 'string'
+    },
     type: {
       const: 'boolean'
     }
   }
 };
-const BooleanType: Prototype<m.BooleanType> = {
+const BooleanType: r.Prototype<m.BooleanType> = {
   id: BooleanTypeType.$id,
   package: PackageName,
   typeInfo: BooleanTypeType
 };
-const StringTypeType: m.TypeInfo = {
+const StringTypeType: r.TypeInfo = {
   $id: 'StringType',
   type: 'object',
   required: ['type'],
   properties: {
     $id: {
+      type: 'string'
+    },
+    $package: {
       type: 'string'
     },
     type: {
@@ -234,17 +258,20 @@ const StringTypeType: m.TypeInfo = {
     }
   }
 };
-const StringType: Prototype<m.StringType> = {
+const StringType: r.Prototype<m.StringType> = {
   id: StringTypeType.$id,
   package: PackageName,
   typeInfo: StringTypeType
 };
-const NumberTypeType: m.TypeInfo = {
+const NumberTypeType: r.TypeInfo = {
   $id: 'NumberType',
   type: 'object',
   required: ['type'],
   properties: {
     $id: {
+      type: 'string'
+    },
+    $package: {
       type: 'string'
     },
     type: {
@@ -258,17 +285,20 @@ const NumberTypeType: m.TypeInfo = {
     }
   }
 };
-const NumberType: Prototype<m.NumberType> = {
+const NumberType: r.Prototype<m.NumberType> = {
   id: NumberTypeType.$id,
   package: PackageName,
   typeInfo: NumberTypeType
 };
-const ObjectTypeType: m.TypeInfo = {
+const ObjectTypeType: r.TypeInfo = {
   $id: 'ObjectType',
   type: 'object',
   required: ['type'],
   properties: {
     $id: {
+      type: 'string'
+    },
+    $package: {
       type: 'string'
     },
     type: {
@@ -298,17 +328,20 @@ const ObjectTypeType: m.TypeInfo = {
     }
   }
 };
-const ObjectType: Prototype<m.ObjectType> = {
+const ObjectType: r.Prototype<m.ObjectType> = {
   id: ObjectTypeType.$id,
   package: PackageName,
   typeInfo: ObjectTypeType
 };
-const OneOfType: m.TypeInfo = {
+const OneOfType: r.TypeInfo = {
   $id: 'OneOf',
   type: 'object',
   required: ['oneOf'],
   properties: {
     $id: {
+      type: 'string'
+    },
+    $package: {
       type: 'string'
     },
     oneOf: {
@@ -319,17 +352,20 @@ const OneOfType: m.TypeInfo = {
     }
   }
 };
-const OneOf: Prototype<m.OneOf> = {
+const OneOf: r.Prototype<m.OneOf> = {
   id: OneOfType.$id,
   package: PackageName,
   typeInfo: OneOfType
 };
-const AllOfType: m.TypeInfo = {
+const AllOfType: r.TypeInfo = {
   $id: 'AllOf',
   type: 'object',
   required: ['allOf'],
   properties: {
     $id: {
+      type: 'string'
+    },
+    $package: {
       type: 'string'
     },
     allOf: {
@@ -340,17 +376,20 @@ const AllOfType: m.TypeInfo = {
     }
   }
 };
-const AllOf: Prototype<m.AllOf> = {
+const AllOf: r.Prototype<m.AllOf> = {
   id: AllOfType.$id,
   package: PackageName,
   typeInfo: AllOfType
 };
-const ModuleType: m.TypeInfo = {
+const ModuleType: r.TypeInfo = {
   $id: 'Module',
   type: 'object',
   required: ['$defs'],
   properties: {
     $id: {
+      type: 'string'
+    },
+    $package: {
       type: 'string'
     },
     $defs: {
@@ -361,13 +400,13 @@ const ModuleType: m.TypeInfo = {
     }
   }
 };
-const Module: Prototype<m.Module> = {
+const Module: r.Prototype<m.Module> = {
   id: ModuleType.$id,
   package: PackageName,
   typeInfo: ModuleType
 };
 
-export const MetaModule: m.Module = {
+export const MetaModule: r.Module = {
   $id: PackageName,
   $defs: {
     TypeInfo: TypeInfoType,

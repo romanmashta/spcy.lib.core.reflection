@@ -55,6 +55,9 @@ exports[`Comply interface with refs 1`] = `
         "$id": {
           "type": "string"
         },
+        "$package": {
+          "type": "string"
+        },
         "$ref": {
           "type": "string"
         },
@@ -78,6 +81,9 @@ exports[`Comply interface with refs 1`] = `
       ],
       "properties": {
         "$id": {
+          "type": "string"
+        },
+        "$package": {
           "type": "string"
         },
         "type": {
@@ -105,6 +111,9 @@ exports[`Comply interface with refs 1`] = `
       ],
       "properties": {
         "$id": {
+          "type": "string"
+        },
+        "$package": {
           "type": "string"
         },
         "const": {
@@ -135,6 +144,9 @@ exports[`Comply interface with refs 1`] = `
         "$id": {
           "type": "string"
         },
+        "$package": {
+          "type": "string"
+        },
         "enum": {
           "type": "array",
           "items": {
@@ -153,6 +165,9 @@ exports[`Comply interface with refs 1`] = `
         "$id": {
           "type": "string"
         },
+        "$package": {
+          "type": "string"
+        },
         "type": {
           "const": "null"
         }
@@ -166,6 +181,9 @@ exports[`Comply interface with refs 1`] = `
       ],
       "properties": {
         "$id": {
+          "type": "string"
+        },
+        "$package": {
           "type": "string"
         },
         "type": {
@@ -183,6 +201,9 @@ exports[`Comply interface with refs 1`] = `
         "$id": {
           "type": "string"
         },
+        "$package": {
+          "type": "string"
+        },
         "type": {
           "const": "boolean"
         }
@@ -196,6 +217,9 @@ exports[`Comply interface with refs 1`] = `
       ],
       "properties": {
         "$id": {
+          "type": "string"
+        },
+        "$package": {
           "type": "string"
         },
         "type": {
@@ -222,6 +246,9 @@ exports[`Comply interface with refs 1`] = `
         "$id": {
           "type": "string"
         },
+        "$package": {
+          "type": "string"
+        },
         "type": {
           "const": "number"
         },
@@ -241,6 +268,9 @@ exports[`Comply interface with refs 1`] = `
       ],
       "properties": {
         "$id": {
+          "type": "string"
+        },
+        "$package": {
           "type": "string"
         },
         "type": {
@@ -280,6 +310,9 @@ exports[`Comply interface with refs 1`] = `
         "$id": {
           "type": "string"
         },
+        "$package": {
+          "type": "string"
+        },
         "oneOf": {
           "type": "array",
           "items": {
@@ -298,6 +331,9 @@ exports[`Comply interface with refs 1`] = `
         "$id": {
           "type": "string"
         },
+        "$package": {
+          "type": "string"
+        },
         "allOf": {
           "type": "array",
           "items": {
@@ -314,6 +350,9 @@ exports[`Comply interface with refs 1`] = `
       ],
       "properties": {
         "$id": {
+          "type": "string"
+        },
+        "$package": {
           "type": "string"
         },
         "$defs": {
