@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import { TypeInfo } from './meta.model';
 import { SchemaResolver, Prototypes } from './schema-resolver';
+import * as cr from './meta.model';
 
 type TypesMap = Map<string, TypeInfo>;
 type PackageMap = Map<string, TypesMap>;
@@ -8,19 +9,22 @@ type PackageMap = Map<string, TypesMap>;
 class SchemaResolverImpl implements SchemaResolver {
   private repo: PackageMap = new Map<string, TypesMap>();
 
-  resolve = (refPackage: string, ref: string): TypeInfo | undefined => this.repo.get(refPackage)?.get(ref);
+  resolve = (ref: cr.TypeReference): TypeInfo | undefined => {
+    const type = this.repo.get(ref.$refPackage)?.get(ref.$ref);
+    return type;
+  };
 
-  register(refPackage: string, ref: string, def: TypeInfo) {
-    let map = this.repo.get(refPackage);
+  register(ref: cr.TypeReference, def: TypeInfo) {
+    let map = this.repo.get(ref.$refPackage);
     if (!map) {
       map = new Map<string, TypeInfo>();
-      this.repo.set(refPackage, map);
+      this.repo.set(ref.$refPackage, map);
     }
-    map.set(ref, def);
+    map.set(ref.$ref, def);
   }
 
   registerTypes(types: Prototypes) {
-    _.forEach(types, p => this.register(p.$refPackage, p.$ref, p.typeInfo));
+    _.forEach(types, p => this.register(p, p.typeInfo));
   }
 }
 

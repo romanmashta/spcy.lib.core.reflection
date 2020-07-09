@@ -1,4 +1,4 @@
-import { TypeInfo } from './meta.model';
+import * as cr from './meta.model';
 import { PrototypeInfo } from './prototype';
 
 export interface Prototypes {
@@ -6,9 +6,9 @@ export interface Prototypes {
 }
 
 export interface SchemaResolver {
-  resolve(refPackage: string, ref: string): TypeInfo | undefined;
+  resolve(ref: cr.TypeReference): cr.TypeInfo | undefined;
 
-  register(refPackage: string, ref: string, def: TypeInfo): void;
+  register(ref: cr.TypeReference, def: cr.TypeInfo): void;
 
   registerTypes(types: Prototypes): void;
 }
