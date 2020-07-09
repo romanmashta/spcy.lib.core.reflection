@@ -80,10 +80,16 @@ const TypeReferenceType: r.TypeInfo = {
     $refPackage: {
       type: 'string'
     },
+    $typeArguments: {
+      type: 'array',
+      items: {
+        type: 'string'
+      }
+    },
     $arguments: {
       type: 'array',
       items: {
-        $ref: 'TypeReference',
+        $ref: 'TypeInfo',
         $refPackage: 'lib.core.reflection'
       }
     }
@@ -343,6 +349,12 @@ const ObjectTypeType: r.TypeInfo = {
     },
     $package: {
       type: 'string'
+    },
+    $typeArguments: {
+      type: 'array',
+      items: {
+        type: 'string'
+      }
     },
     type: {
       const: 'object'

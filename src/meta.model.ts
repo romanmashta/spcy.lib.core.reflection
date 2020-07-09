@@ -17,7 +17,8 @@ export interface TypeReference {
   $package?: string;
   $ref: string;
   $refPackage: string;
-  $arguments?: TypeReference[];
+  $typeArguments?: string[];
+  $arguments?: TypeInfo[];
 }
 
 export interface ArrayType {
@@ -80,6 +81,7 @@ export interface NumberType {
 export interface ObjectType {
   $id?: string;
   $package?: string;
+  $typeArguments?: string[];
   type: 'object';
   required?: string[];
   properties?: {
