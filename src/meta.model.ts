@@ -17,6 +17,7 @@ export interface TypeReference {
   $package?: string;
   $ref: string;
   $refPackage: string;
+  $refArguments?: string;
   $typeArguments?: string[];
   $arguments?: TypeInfo[];
 }

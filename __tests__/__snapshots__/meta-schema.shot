@@ -79,6 +79,9 @@ exports[`Comply interface with refs 1`] = `
         "$refPackage": {
           "type": "string"
         },
+        "$refArguments": {
+          "type": "string"
+        },
         "$typeArguments": {
           "type": "array",
           "items": {

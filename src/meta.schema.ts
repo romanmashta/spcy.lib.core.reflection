@@ -80,6 +80,9 @@ const TypeReferenceType: r.TypeInfo = {
     $refPackage: {
       type: 'string'
     },
+    $refArguments: {
+      type: 'string'
+    },
     $typeArguments: {
       type: 'array',
       items: {
