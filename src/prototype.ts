@@ -1,6 +1,7 @@
 import { TypeInfo, TypeReference } from './meta.model';
 
-export interface PrototypeInfo extends TypeReference {
+export interface PrototypeInfo {
+  ref: TypeReference;
   typeInfo: TypeInfo;
 }
 

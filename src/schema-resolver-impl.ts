@@ -51,7 +51,7 @@ class SchemaResolverImpl implements SchemaResolver {
   }
 
   registerTypes(types: Prototypes) {
-    _.forEach(types, p => this.register(p, p.typeInfo));
+    _.forEach(types, p => this.register(p.ref, p.typeInfo));
   }
 }
 

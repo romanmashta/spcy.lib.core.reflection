@@ -20,8 +20,7 @@ const ExportModuleType: r.TypeInfo = {
 };
 
 const ExportModule: r.Prototype<m.ExportModule> = {
-  $ref: ExportModuleType.$id!,
-  $refPackage: ExportModuleType.$package!,
+  ref: { $ref: ExportModuleType.$id!, $refPackage: ExportModuleType.$package! },
   typeInfo: ExportModuleType
 };
 
@@ -58,8 +57,7 @@ const SourceFileType: r.TypeInfo = {
 };
 
 const SourceFile: r.Prototype<m.SourceFile> = {
-  $ref: SourceFileType.$id!,
-  $refPackage: SourceFileType.$package!,
+  ref: { $ref: SourceFileType.$id!, $refPackage: SourceFileType.$package! },
   typeInfo: SourceFileType
 };
 
@@ -90,8 +88,7 @@ const MetaInfoType: r.TypeInfo = {
 };
 
 const MetaInfo: r.Prototype<m.MetaInfo> = {
-  $ref: MetaInfoType.$id!,
-  $refPackage: MetaInfoType.$package!,
+  ref: { $ref: MetaInfoType.$id!, $refPackage: MetaInfoType.$package! },
   typeInfo: MetaInfoType
 };
 

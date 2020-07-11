@@ -57,8 +57,7 @@ const TypeInfoType: r.TypeInfo = {
 };
 
 const TypeInfo: r.Prototype<m.TypeInfo> = {
-  $ref: TypeInfoType.$id!,
-  $refPackage: TypeInfoType.$package!,
+  ref: { $ref: TypeInfoType.$id!, $refPackage: TypeInfoType.$package! },
   typeInfo: TypeInfoType
 };
 
@@ -100,8 +99,7 @@ const TypeReferenceType: r.TypeInfo = {
 };
 
 const TypeReference: r.Prototype<m.TypeReference> = {
-  $ref: TypeReferenceType.$id!,
-  $refPackage: TypeReferenceType.$package!,
+  ref: { $ref: TypeReferenceType.$id!, $refPackage: TypeReferenceType.$package! },
   typeInfo: TypeReferenceType
 };
 
@@ -137,8 +135,7 @@ const ArrayTypeType: r.TypeInfo = {
 };
 
 const ArrayType: r.Prototype<m.ArrayType> = {
-  $ref: ArrayTypeType.$id!,
-  $refPackage: ArrayTypeType.$package!,
+  ref: { $ref: ArrayTypeType.$id!, $refPackage: ArrayTypeType.$package! },
   typeInfo: ArrayTypeType
 };
 
@@ -174,8 +171,7 @@ const ConstLiteralType: r.TypeInfo = {
 };
 
 const ConstLiteral: r.Prototype<m.ConstLiteral> = {
-  $ref: ConstLiteralType.$id!,
-  $refPackage: ConstLiteralType.$package!,
+  ref: { $ref: ConstLiteralType.$id!, $refPackage: ConstLiteralType.$package! },
   typeInfo: ConstLiteralType
 };
 
@@ -201,8 +197,7 @@ const EnumTypeType: r.TypeInfo = {
 };
 
 const EnumType: r.Prototype<m.EnumType> = {
-  $ref: EnumTypeType.$id!,
-  $refPackage: EnumTypeType.$package!,
+  ref: { $ref: EnumTypeType.$id!, $refPackage: EnumTypeType.$package! },
   typeInfo: EnumTypeType
 };
 
@@ -225,8 +220,7 @@ const NullTypeType: r.TypeInfo = {
 };
 
 const NullType: r.Prototype<m.NullType> = {
-  $ref: NullTypeType.$id!,
-  $refPackage: NullTypeType.$package!,
+  ref: { $ref: NullTypeType.$id!, $refPackage: NullTypeType.$package! },
   typeInfo: NullTypeType
 };
 
@@ -249,8 +243,7 @@ const DateTypeType: r.TypeInfo = {
 };
 
 const DateType: r.Prototype<m.DateType> = {
-  $ref: DateTypeType.$id!,
-  $refPackage: DateTypeType.$package!,
+  ref: { $ref: DateTypeType.$id!, $refPackage: DateTypeType.$package! },
   typeInfo: DateTypeType
 };
 
@@ -273,8 +266,7 @@ const BooleanTypeType: r.TypeInfo = {
 };
 
 const BooleanType: r.Prototype<m.BooleanType> = {
-  $ref: BooleanTypeType.$id!,
-  $refPackage: BooleanTypeType.$package!,
+  ref: { $ref: BooleanTypeType.$id!, $refPackage: BooleanTypeType.$package! },
   typeInfo: BooleanTypeType
 };
 
@@ -306,8 +298,7 @@ const StringTypeType: r.TypeInfo = {
 };
 
 const StringType: r.Prototype<m.StringType> = {
-  $ref: StringTypeType.$id!,
-  $refPackage: StringTypeType.$package!,
+  ref: { $ref: StringTypeType.$id!, $refPackage: StringTypeType.$package! },
   typeInfo: StringTypeType
 };
 
@@ -336,8 +327,7 @@ const NumberTypeType: r.TypeInfo = {
 };
 
 const NumberType: r.Prototype<m.NumberType> = {
-  $ref: NumberTypeType.$id!,
-  $refPackage: NumberTypeType.$package!,
+  ref: { $ref: NumberTypeType.$id!, $refPackage: NumberTypeType.$package! },
   typeInfo: NumberTypeType
 };
 
@@ -390,8 +380,7 @@ const ObjectTypeType: r.TypeInfo = {
 };
 
 const ObjectType: r.Prototype<m.ObjectType> = {
-  $ref: ObjectTypeType.$id!,
-  $refPackage: ObjectTypeType.$package!,
+  ref: { $ref: ObjectTypeType.$id!, $refPackage: ObjectTypeType.$package! },
   typeInfo: ObjectTypeType
 };
 
@@ -418,8 +407,7 @@ const OneOfType: r.TypeInfo = {
 };
 
 const OneOf: r.Prototype<m.OneOf> = {
-  $ref: OneOfType.$id!,
-  $refPackage: OneOfType.$package!,
+  ref: { $ref: OneOfType.$id!, $refPackage: OneOfType.$package! },
   typeInfo: OneOfType
 };
 
@@ -446,8 +434,7 @@ const AllOfType: r.TypeInfo = {
 };
 
 const AllOf: r.Prototype<m.AllOf> = {
-  $ref: AllOfType.$id!,
-  $refPackage: AllOfType.$package!,
+  ref: { $ref: AllOfType.$id!, $refPackage: AllOfType.$package! },
   typeInfo: AllOfType
 };
 
@@ -474,8 +461,7 @@ const ModuleType: r.TypeInfo = {
 };
 
 const Module: r.Prototype<m.Module> = {
-  $ref: ModuleType.$id!,
-  $refPackage: ModuleType.$package!,
+  ref: { $ref: ModuleType.$id!, $refPackage: ModuleType.$package! },
   typeInfo: ModuleType
 };
 
