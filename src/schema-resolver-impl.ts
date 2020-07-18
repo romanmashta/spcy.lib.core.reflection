@@ -9,7 +9,7 @@ type PackageMap = Map<string, TypesMap>;
 class SchemaResolverImpl implements SchemaResolver {
   private repo: PackageMap = new Map<string, TypesMap>();
 
-  createGenericType = (type: cr.ObjectType | cr.TypeReference, typeArguments: TypeInfo[]): TypeInfo => {
+  createGenericType = (type: cr.ObjectType | cr.TypeReference | cr.AllOf, typeArguments: TypeInfo[]): TypeInfo => {
     if (type.$typeArguments) {
       const map = _.zipObject(type.$typeArguments, typeArguments);
       const genericType = _.cloneDeepWith(type, v => {
@@ -33,7 +33,7 @@ class SchemaResolverImpl implements SchemaResolver {
 
     const type = packageRepo.get(`${ref.$ref}.${ref.$refArguments}`);
     if (type) return type;
-    if (cr.isObjectType(targetType) || cr.isTypeReference(targetType)) {
+    if (cr.isObjectType(targetType) || cr.isTypeReference(targetType) || cr.isAllOf(targetType)) {
       const genericType = this.createGenericType(targetType, ref.$arguments || []);
       packageRepo.set(ref.$refArguments, genericType);
       return genericType;
