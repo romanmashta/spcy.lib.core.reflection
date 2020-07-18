@@ -423,6 +423,12 @@ const AllOfType: r.TypeInfo = {
     $package: {
       type: 'string'
     },
+    $typeArguments: {
+      type: 'array',
+      items: {
+        type: 'string'
+      }
+    },
     allOf: {
       type: 'array',
       items: {

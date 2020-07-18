@@ -100,6 +100,7 @@ export interface OneOf {
 export interface AllOf {
   $id?: string;
   $package?: string;
+  $typeArguments?: string[];
   allOf: TypeInfo[];
 }
 
