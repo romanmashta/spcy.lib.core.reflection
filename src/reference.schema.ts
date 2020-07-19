@@ -5,7 +5,6 @@ const ReferenceType: r.TypeInfo = {
   $id: 'Reference',
   $package: 'lib.core.reflection',
   type: 'object',
-  required: ['$ref'],
   properties: {
     $type: {
       $ref: 'TypeInfo',
@@ -29,13 +28,21 @@ const ReferenceWithTypeType: r.TypeInfo = {
   $id: 'ReferenceWithType',
   $package: 'lib.core.reflection',
   $typeArguments: ['T'],
-  type: 'object',
-  properties: {
-    object: {
-      $ref: 'T',
+  allOf: [
+    {
+      $ref: 'Reference',
       $refPackage: 'lib.core.reflection'
+    },
+    {
+      type: 'object',
+      properties: {
+        object: {
+          $ref: 'T',
+          $refPackage: 'lib.core.reflection'
+        }
+      }
     }
-  }
+  ]
 };
 
 const ReferenceWithType: r.PrototypeInfo = {
@@ -47,7 +54,6 @@ const ReferenceSetType: r.TypeInfo = {
   $id: 'ReferenceSet',
   $package: 'lib.core.reflection',
   type: 'object',
-  required: ['$ref'],
   properties: {
     $type: {
       $ref: 'TypeInfo',
@@ -74,13 +80,21 @@ const ReferenceSetWithTypeType: r.TypeInfo = {
   $id: 'ReferenceSetWithType',
   $package: 'lib.core.reflection',
   $typeArguments: ['T'],
-  type: 'object',
-  properties: {
-    objects: {
-      $ref: 'T',
+  allOf: [
+    {
+      $ref: 'ReferenceSet',
       $refPackage: 'lib.core.reflection'
+    },
+    {
+      type: 'object',
+      properties: {
+        objects: {
+          $ref: 'T',
+          $refPackage: 'lib.core.reflection'
+        }
+      }
     }
-  }
+  ]
 };
 
 const ReferenceSetWithType: r.PrototypeInfo = {
