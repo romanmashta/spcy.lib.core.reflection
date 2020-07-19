@@ -89,8 +89,11 @@ const ReferenceSetWithTypeType: r.TypeInfo = {
       type: 'object',
       properties: {
         objects: {
-          $ref: 'T',
-          $refPackage: 'lib.core.reflection'
+          type: 'object',
+          additionalProperties: {
+            $ref: 'T',
+            $refPackage: 'lib.core.reflection'
+          }
         }
       }
     }

@@ -18,6 +18,8 @@ export interface ReferenceSet {
   };
 }
 
-export interface ReferenceSetWithType<T extends { [id: string]: T }> extends ReferenceSet {
-  objects?: T;
+export interface ReferenceSetWithType<T> extends ReferenceSet {
+  objects?: {
+    [id: string]: T;
+  };
 }
