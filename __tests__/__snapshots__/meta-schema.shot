@@ -510,9 +510,6 @@ exports[`Comply interface with refs 1`] = `
       "$id": "Reference",
       "$package": "lib.core.reflection",
       "type": "object",
-      "required": [
-        "$ref"
-      ],
       "properties": {
         "$type": {
           "$ref": "TypeInfo",
@@ -532,21 +529,26 @@ exports[`Comply interface with refs 1`] = `
       "$typeArguments": [
         "T"
       ],
-      "type": "object",
-      "properties": {
-        "object": {
-          "$ref": "T",
+      "allOf": [
+        {
+          "$ref": "Reference",
           "$refPackage": "lib.core.reflection"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "object": {
+              "$ref": "T",
+              "$refPackage": "lib.core.reflection"
+            }
+          }
         }
-      }
+      ]
     },
     "ReferenceSet": {
       "$id": "ReferenceSet",
       "$package": "lib.core.reflection",
       "type": "object",
-      "required": [
-        "$ref"
-      ],
       "properties": {
         "$type": {
           "$ref": "TypeInfo",
@@ -569,13 +571,24 @@ exports[`Comply interface with refs 1`] = `
       "$typeArguments": [
         "T"
       ],
-      "type": "object",
-      "properties": {
-        "objects": {
-          "$ref": "T",
+      "allOf": [
+        {
+          "$ref": "ReferenceSet",
           "$refPackage": "lib.core.reflection"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "objects": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "T",
+                "$refPackage": "lib.core.reflection"
+              }
+            }
+          }
         }
-      }
+      ]
     }
   }
 }

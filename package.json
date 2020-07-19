@@ -16,6 +16,7 @@
   "scripts": {
     "spcy:clean": "shx rm -rf dist && shx rm -rf lib",
     "spcy:meta-manual": "yarn tsr --includes='__tests__/**/*.ts' && yarn spcy:format",
+    "spcy:pre-build": "yarn spcy:clean && tsc",
     "spcy:build": "yarn spcy:clean && tsc",
     "spcy:format": "prettier --write \"{src,__tests__}/**/*.{js,ts}\"",
     "spcy:lint": "eslint --fix \"src/**/*.{js,ts}\"",
