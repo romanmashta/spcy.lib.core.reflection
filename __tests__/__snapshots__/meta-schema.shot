@@ -511,14 +511,14 @@ exports[`Comply interface with refs 1`] = `
       "$package": "lib.core.reflection",
       "type": "object",
       "required": [
-        "$reference"
+        "$ref"
       ],
       "properties": {
         "$type": {
           "$ref": "TypeInfo",
           "$refPackage": "lib.core.reflection"
         },
-        "$reference": {
+        "$ref": {
           "type": "string"
         },
         "object": {
@@ -545,14 +545,14 @@ exports[`Comply interface with refs 1`] = `
       "$package": "lib.core.reflection",
       "type": "object",
       "required": [
-        "$reference"
+        "$ref"
       ],
       "properties": {
         "$type": {
           "$ref": "TypeInfo",
           "$refPackage": "lib.core.reflection"
         },
-        "$reference": {
+        "$ref": {
           "type": "string"
         },
         "objects": {

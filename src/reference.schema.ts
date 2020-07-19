@@ -5,13 +5,13 @@ const ReferenceType: r.TypeInfo = {
   $id: 'Reference',
   $package: 'lib.core.reflection',
   type: 'object',
-  required: ['$reference'],
+  required: ['$ref'],
   properties: {
     $type: {
       $ref: 'TypeInfo',
       $refPackage: 'lib.core.reflection'
     },
-    $reference: {
+    $ref: {
       type: 'string'
     },
     object: {
@@ -47,13 +47,13 @@ const ReferenceSetType: r.TypeInfo = {
   $id: 'ReferenceSet',
   $package: 'lib.core.reflection',
   type: 'object',
-  required: ['$reference'],
+  required: ['$ref'],
   properties: {
     $type: {
       $ref: 'TypeInfo',
       $refPackage: 'lib.core.reflection'
     },
-    $reference: {
+    $ref: {
       type: 'string'
     },
     objects: {

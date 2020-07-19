@@ -2,7 +2,7 @@ import { TypeInfo } from './meta.model';
 
 export interface Reference {
   $type?: TypeInfo;
-  $reference: string;
+  $ref: string;
   object?: unknown;
 }
 
@@ -12,7 +12,7 @@ export interface ReferenceWithType<T> {
 
 export interface ReferenceSet {
   $type?: TypeInfo;
-  $reference: string;
+  $ref: string;
   objects?: {
     [id: string]: unknown;
   };
