@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import * as r from './reflection';
 import * as m from './meta-extensions.model';
 
@@ -28,7 +29,7 @@ const SourceFileType: r.TypeInfo = {
   $id: 'SourceFile',
   $package: 'lib.core.reflection',
   type: 'object',
-  required: ['fileName', 'moduleName', 'moduleFileName', 'exports', 'module', 'isEmpty'],
+  required: ['fileName', 'moduleName', 'moduleFileName', 'reflectionModule', 'exports', 'module', 'isEmpty'],
   properties: {
     fileName: {
       type: 'string'
@@ -37,6 +38,9 @@ const SourceFileType: r.TypeInfo = {
       type: 'string'
     },
     moduleFileName: {
+      type: 'string'
+    },
+    reflectionModule: {
       type: 'string'
     },
     exports: {

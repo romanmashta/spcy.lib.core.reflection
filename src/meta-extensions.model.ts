@@ -10,6 +10,7 @@ export interface SourceFile {
   fileName: string;
   moduleName: string;
   moduleFileName: string;
+  reflectionModule: string;
   exports: ExportModule[];
   module: Module;
   isEmpty: boolean;
